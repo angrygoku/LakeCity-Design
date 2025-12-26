@@ -6,7 +6,7 @@ const About = () => {
           {/* Left Content */}
           <div>
             <span className="text-primary font-display font-medium text-sm tracking-widest uppercase mb-4 block">
-              About Teemo
+              About Us
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-8">
               Your trusted partner in{" "}
@@ -14,7 +14,7 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-                Teemo is a design studio built on a simple belief: great design 
+                Lakecity Designs is a design studio built on a simple belief: great design 
                 builds trust, and trust builds business. We partner with clients 
                 who value quality and understand that every visual touchpoint matters.
               </p>
