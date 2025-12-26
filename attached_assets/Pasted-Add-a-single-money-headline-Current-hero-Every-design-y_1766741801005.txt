@@ -1,0 +1,65 @@
+Add a single “money” headline
+Current hero: “Every design you can imagine”
+Problem: it’s about you, not the outcome they pay for.
+Replace with:
+“We design wedding suites & pitch decks that get you compliments and capital—delivered in 5 days.”
+Now the buyer instantly knows:
+What (wedding / pitch)
+Benefit (compliments / capital)
+Speed (5 days)
+Turn the three big service boxes into outcome-driven packages
+Instead of “Wedding Designs” call it:
+“All-in Wedding Suite – 12 pieces, print-ready, guest-ready in 7 days – ₹18 000”
+Do the same for:
+“Investor Pitch Deck – 12 slides that close seed rounds – 3-day rush available – ₹25 000”
+“Event Printables Bundle – signage to table cards, one invoice – ₹12 000”
+Fixed scope + fixed price = faster “yes”.
+Insert a 35-word social-proof strip right under the hero
+Even if you’ve only done pro-bono work, you have testimonials.
+Example:
+“Lakecity turned our 40-slide mess into a ₹1.2 Cr seed round in 10 days. Investors said it was the best deck they’d seen.” – Aakriti, Founder, GreenLoop (logo)
+One strip, 3 rotators, auto-scroll every 4 s.
+Add a “How it works” 3-step graphic
+5-min brief form
+Get 2 concepts in 24 h
+Receive print-ready files + source link
+This kills the biggest objection: “I don’t have time to go back and forth.”
+Put two big buttons above the fold
+Left: “Book a 15-min call” (Calendly)
+Right: “WhatsApp us” (mobile-first India audience)
+Colour them contrasting but on-brand; track clicks in GA4.
+SEO micro-copy under each package
+30-word paragraph with the exact keyword you want:
+“Affordable wedding invitation designers in Udaipur” – Google picks this up and you start ranking for local searches without a blog.
+Capture exit traffic
+Add a 5-second delay pop-up:
+“Leaving? Get our free 7-slide pitch-deck template (Canva ready).”
+Deliver via auto-email; now you have a warm list even if they don’t buy today.
+Speed & accessibility quick wins
+WebP images, <150 KB each.
+Add alt text: “Lakecity Designs – pastel wedding invitation suite” – helps Google Images traffic.
+Ensure 4.5:1 contrast ratio; your mint-green on white fails WCAG. Darken text to #00796B.
+Pricing page psychology
+If you want to keep “custom” pricing, at least show three anchors:
+“Basic ₹12 k, Standard ₹22 k, Premium ₹35 k”
+Then a CTA: “Need something else? Ask for a quote.”
+Anchors reduce sticker-shock emails by ~40 %.
+Footer trust badges
+WhatsApp green badge “Reply in <1 h”
+“100 % satisfaction or we redo it free”
+Secure payment icons (Razorpay, Stripe)
+These add last-second credibility before they scroll back up to call.
+Copy-paste headline swap (ready to use)
+Hero:
+“Wedding stationery & pitch decks that make people say ‘wow’—designed and delivered in under a week.”
+Sub:
+“No hourly rates. No endless revisions. Just flat-price packages and print-ready files.”
+Button:
+“I need this →” (links to Calendly)
+Next 30-minute tasks
+Change the H1 and sub-line.
+Replace service tiles with the three outcome packages.
+Collect 2 testimonials (even from friends) and add the rotator.
+Insert Calendly + WhatsApp buttons.
+Run PageSpeed Insights; compress the first five images.
+Do those five and your conversion rate should jump before you spend another rupee on ads.

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Calendar } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -29,7 +29,6 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-8 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
-            <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-muted-foreground">
               <span className="text-primary font-semibold">Lakecity</span> Designs
             </span>
@@ -37,12 +36,15 @@ const Hero = () => {
 
           {/* Headline */}
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] mb-8 opacity-0 animate-fade-up"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] mb-8 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.4s" }}
           >
-            Every design
+            Wedding stationery & pitch decks that make people say{" "}
+            <span className="text-gradient">'wow'</span>
             <br />
-            <span className="text-gradient">you can imagine</span>
+            <span className="text-2xl md:text-3xl lg:text-4xl font-medium text-muted-foreground mt-4 block">
+              —designed and delivered in under a week.
+            </span>
           </h1>
 
           {/* Subheadline */}
@@ -50,38 +52,43 @@ const Hero = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.6s" }}
           >
-            Wedding stationery, pitch decks, event printables, beautiful websites—
-            from the smallest detail to the biggest vision. We bring your ideas to life.
+            No hourly rates. No endless revisions. Just flat-price packages and print-ready files.
           </p>
 
-          {/* CTAs */}
+          {/* CTAs - Two Big Buttons */}
           <div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.8s" }}
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="#contact">
-                Start Your Project
-                <ArrowRight className="w-5 h-5" />
+              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+                <Calendar className="w-5 h-5" />
+                Book a 15-min Call
               </a>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
-              <a href="#services">See What We Create</a>
+            <Button 
+              size="xl" 
+              asChild
+              className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold"
+            >
+              <a href="https://wa.me/919675624255" target="_blank" rel="noopener noreferrer">
+                <Phone className="w-5 h-5" />
+                WhatsApp Us
+              </a>
             </Button>
           </div>
 
-          {/* Trust Statement */}
+          {/* Secondary CTA */}
           <div
-            className="mt-20 pt-12 border-t border-border/50 max-w-3xl mx-auto opacity-0 animate-fade-up"
+            className="mt-6 opacity-0 animate-fade-up"
             style={{ animationDelay: "1s" }}
           >
-            <p className="text-lg md:text-xl font-display font-medium text-foreground mb-4">
-              No project too small. No vision too big.
-            </p>
-            <p className="text-muted-foreground">
-              We partner with you to create designs that build trust, impress clients, 
-              and elevate your brand—every single time.
-            </p>
+            <Button variant="heroOutline" size="lg" asChild>
+              <a href="#services">
+                See Our Packages
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>

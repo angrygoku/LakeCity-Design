@@ -1,40 +1,36 @@
-import { Heart, Presentation, PartyPopper, Globe, Palette } from "lucide-react";
+import { Heart, Presentation, PartyPopper, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
     icon: Heart,
-    title: "Wedding Designs",
+    title: "All-in Wedding Suite",
+    price: "₹18,000",
+    highlight: "12 pieces, print-ready, guest-ready in 7 days",
     description:
-      "Complete wedding stationery suites that tell your love story. Invitations, save-the-dates, menus, programs, and every detail in between.",
-    features: ["Invitation Suites", "Menu Cards", "Place Cards", "Programs"],
+      "Complete wedding stationery that tells your love story. Invitations, save-the-dates, menus, programs, place cards, and every detail in between.",
+    features: ["12 Coordinated Pieces", "Print-Ready Files", "7-Day Delivery", "Unlimited Revisions"],
+    seoText: "Affordable wedding invitation designers in Udaipur. Beautiful, custom wedding stationery suites delivered fast.",
   },
   {
     icon: Presentation,
-    title: "Pitch Decks & Concepts",
+    title: "Investor Pitch Deck",
+    price: "₹25,000",
+    highlight: "12 slides that close seed rounds – 3-day rush available",
     description:
-      "Compelling presentations that win investors and clients. From startup pitches to corporate proposals, we make your ideas shine.",
-    features: ["Investor Decks", "Sales Presentations", "Concept Designs"],
+      "Compelling presentations that win investors and clients. Designed to make your startup story shine and secure funding.",
+    features: ["12 Custom Slides", "Investor-Ready Design", "3-Day Rush Option", "Source Files Included"],
+    seoText: "Professional pitch deck design services in India. Startup presentation design that wins funding rounds.",
   },
   {
     icon: PartyPopper,
-    title: "Event Printables",
+    title: "Event Printables Bundle",
+    price: "₹12,000",
+    highlight: "Signage to table cards, one invoice",
     description:
       "Everything you need for memorable events. Signage, programs, name tags, banners, and custom materials for any occasion.",
-    features: ["Event Signage", "Programs & Agendas", "Name Tags", "Banners"],
-  },
-  {
-    icon: Globe,
-    title: "Beautiful Websites",
-    description:
-      "Stunning, modern websites that captivate your audience. From elegant portfolios to full business sites, crafted with care.",
-    features: ["Responsive Design", "SEO Optimized", "Fast Performance"],
-  },
-  {
-    icon: Palette,
-    title: "Any Design You Need",
-    description:
-      "From the smallest business card to the biggest campaign—if it needs design, we can create it. No project is too small or too large.",
-    features: ["Branding", "Social Media", "Print Materials", "Digital Assets"],
+    features: ["Complete Event Kit", "Signage & Banners", "Table Cards & Tags", "Single Invoice"],
+    seoText: "Event design and printables service in Rajasthan. Corporate event branding and signage design.",
   },
 ];
 
@@ -48,25 +44,22 @@ const Services = () => {
         {/* Header */}
         <div className="max-w-2xl mb-20">
           <span className="text-primary font-display font-medium text-sm tracking-widest uppercase mb-4 block">
-            What We Create
+            Our Packages
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-            Design services for <span className="text-gradient">every need</span>
+            Fixed scope. <span className="text-gradient">Fixed price.</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            From intimate wedding details to bold business presentations—we bring
-            creativity and precision to every project, big or small.
+            No surprises, no hidden costs. Choose your package and get results fast.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`group relative p-8 md:p-10 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-500 hover-lift ${
-                index === 4 ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
+              className="group relative p-8 md:p-10 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-500 hover-lift flex flex-col"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
@@ -75,15 +68,26 @@ const Services = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-display font-bold mb-4">
+              <h3 className="text-2xl font-display font-bold mb-2">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              
+              {/* Price */}
+              <div className="mb-4">
+                <span className="text-3xl font-bold text-primary">{service.price}</span>
+              </div>
+              
+              {/* Highlight */}
+              <p className="text-sm font-medium text-primary/80 bg-primary/10 px-3 py-2 rounded-lg mb-4">
+                {service.highlight}
+              </p>
+              
+              <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
                 {service.description}
               </p>
 
               {/* Features */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {service.features.map((feature) => (
                   <span
                     key={feature}
@@ -94,10 +98,34 @@ const Services = () => {
                 ))}
               </div>
 
+              {/* CTA */}
+              <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
+                <a href="#contact">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </Button>
+
+              {/* SEO Text */}
+              <p className="text-xs text-muted-foreground/60 mt-4 leading-relaxed">
+                {service.seoText}
+              </p>
+
               {/* Hover Glow */}
               <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
             </div>
           ))}
+        </div>
+
+        {/* Custom Quote CTA */}
+        <div className="mt-16 text-center p-8 rounded-2xl bg-secondary/30 border border-border">
+          <h3 className="text-xl font-display font-bold mb-2">Need something different?</h3>
+          <p className="text-muted-foreground mb-4">
+            We also create websites, brand identities, social media graphics, and more.
+          </p>
+          <Button variant="default" asChild>
+            <a href="#contact">Ask for a Custom Quote</a>
+          </Button>
         </div>
       </div>
     </section>
