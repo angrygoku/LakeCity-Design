@@ -36,9 +36,13 @@ const Navbar = () => {
           {/* Logo */}
           <a
             href="#"
-            className="font-display text-xl md:text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+            className="hover:opacity-80 transition-opacity"
           >
-            <span className="text-primary">Lakecity</span> Designs
+            <img 
+              src="/logo.png" 
+              alt="Lakecity Design" 
+              className="h-10 md:h-12 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}

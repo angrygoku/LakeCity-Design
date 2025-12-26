@@ -32,9 +32,11 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-8 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
-            <span className="text-sm font-medium text-muted-foreground">
-              <span className="text-primary font-semibold">Lakecity</span> Designs
-            </span>
+            <img 
+              src="/logo.png" 
+              alt="Lakecity Design" 
+              className="h-6 w-auto"
+            />
           </div>
 
           {/* Headline */}

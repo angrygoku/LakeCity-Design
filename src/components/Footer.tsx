@@ -44,9 +44,13 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <a
               href="#"
-              className="font-display text-2xl font-bold tracking-tight hover:text-primary transition-colors inline-block mb-4"
+              className="inline-block mb-4 hover:opacity-80 transition-opacity"
             >
-              <span className="text-primary">Lakecity</span> Designs
+              <img 
+                src="/logo.png" 
+                alt="Lakecity Design" 
+                className="h-12 w-auto mx-auto md:mx-0"
+              />
             </a>
             <p className="text-sm text-muted-foreground">
               Wedding stationery & pitch decks that make people say 'wow'.
