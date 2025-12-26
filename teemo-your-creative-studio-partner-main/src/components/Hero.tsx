@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Calendar } from "lucide-react";
+import { useContactModal } from "./ContactModalContext";
 
 const Hero = () => {
+  const { openModal } = useContactModal();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-dark">
       {/* Background Elements */}
@@ -60,21 +63,21 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up"
             style={{ animationDelay: "0.8s" }}
           >
-            <Button variant="hero" size="xl" asChild>
-              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-                <Calendar className="w-5 h-5" />
-                Book a 15-min Call
-              </a>
+            <Button 
+              variant="hero" 
+              size="xl" 
+              onClick={() => openModal("call")}
+            >
+              <Calendar className="w-5 h-5" />
+              Book a 15-min Call
             </Button>
             <Button 
               size="xl" 
-              asChild
+              onClick={() => openModal("project")}
               className="bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold"
             >
-              <a href="https://wa.me/919675624255" target="_blank" rel="noopener noreferrer">
-                <Phone className="w-5 h-5" />
-                WhatsApp Us
-              </a>
+              <Phone className="w-5 h-5" />
+              WhatsApp Us
             </Button>
           </div>
 

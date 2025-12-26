@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useContactModal } from "./ContactModalContext";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openModal } = useContactModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="default" size="default">
+            <Button variant="default" size="default" onClick={() => openModal("project")}>
               Start a Project
             </Button>
           </div>
@@ -82,7 +84,15 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="lg" className="mt-4">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="mt-4"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openModal("project");
+                }}
+              >
                 Start a Project
               </Button>
             </div>
