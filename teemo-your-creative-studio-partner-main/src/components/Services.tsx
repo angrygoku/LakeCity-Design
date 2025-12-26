@@ -1,4 +1,4 @@
-import { Heart, Presentation, PartyPopper, Globe, Palette, Megaphone, ArrowRight } from "lucide-react";
+import { Heart, Presentation, PartyPopper, Globe, Palette, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -31,12 +31,6 @@ const services = [
     title: "Brand Identity",
     price: "₹18k onwards",
     description: "Logos, colors, typography & brand guidelines",
-  },
-  {
-    icon: Megaphone,
-    title: "Social Media",
-    price: "₹8k onwards",
-    description: "Posts, stories, ads & content templates",
   },
 ];
 

@@ -118,7 +118,6 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
               <option value="Event Printables">Event Printables</option>
               <option value="Website">Website</option>
               <option value="Brand Identity">Brand Identity</option>
-              <option value="Social Media">Social Media</option>
               <option value="Other">Something else</option>
             </select>
           </div>
