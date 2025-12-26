@@ -36,5 +36,5 @@ externalPort = 80
 
 [deployment]
 deploymentTarget = "static"
-build = ["npm", "run", "build"]
+build = ["bash", "-c", "cd teemo-your-creative-studio-partner-main && npm run build"]
 publicDir = "teemo-your-creative-studio-partner-main/dist"
