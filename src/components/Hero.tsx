@@ -35,7 +35,7 @@ const Hero = () => {
             <img 
               src="/logo.png" 
               alt="Lakecity Design" 
-              className="h-6 w-auto"
+              className="h-10 w-auto"
             />
           </div>
 
