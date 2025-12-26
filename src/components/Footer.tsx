@@ -49,7 +49,7 @@ const Footer = () => {
               <img 
                 src="/logo.png" 
                 alt="Lakecity Design" 
-                className="h-16 w-auto mx-auto md:mx-0"
+                className="h-32 w-auto mx-auto md:mx-0"
               />
             </a>
             <p className="text-sm text-muted-foreground">
