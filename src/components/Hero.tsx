@@ -27,43 +27,31 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-8 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <img 
-              src="/logo.png" 
-              alt="Lakecity Design" 
-              className="h-24 w-auto"
-            />
-          </div>
-
           {/* Headline */}
           <h1
             className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] mb-8 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.4s" }}
+            style={{ animationDelay: "0.2s" }}
           >
-            Wedding stationery & pitch decks that make people say{" "}
-            <span className="text-gradient">'wow'</span>
+            Websites that convert visitors into{" "}
+            <span className="text-gradient">customers</span>
             <br />
             <span className="text-2xl md:text-3xl lg:text-4xl font-medium text-muted-foreground mt-4 block">
-              —designed and delivered in under a week.
+              —designed, built & launched in under 2 weeks.
             </span>
           </h1>
 
           {/* Subheadline */}
           <p
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.6s" }}
+            style={{ animationDelay: "0.4s" }}
           >
-            No hourly rates. No endless revisions. Just flat-price packages and print-ready files.
+            No hourly rates. No endless revisions. Just fixed-price packages and pixel-perfect designs.
           </p>
 
           {/* CTAs - Two Big Buttons */}
           <div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up"
-            style={{ animationDelay: "0.8s" }}
+            style={{ animationDelay: "0.6s" }}
           >
             <Button 
               variant="hero" 
@@ -86,7 +74,7 @@ const Hero = () => {
           {/* Secondary CTA */}
           <div
             className="mt-6 opacity-0 animate-fade-up"
-            style={{ animationDelay: "1s" }}
+            style={{ animationDelay: "0.8s" }}
           >
             <Button variant="heroOutline" size="lg" asChild>
               <a href="#services">

@@ -13,14 +13,14 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Lakecity Designs | Wedding Stationery & Pitch Deck Design Studio in Udaipur</title>
+        <title>Lakecity Design | Web Design & Development Studio in Udaipur</title>
         <meta
           name="description"
-          content="Lakecity Designs creates stunning wedding stationery, pitch decks, and event printables. Fixed-price packages, delivered in under a week. Based in Udaipur, Rajasthan."
+          content="Lakecity Design builds stunning websites that convert visitors into customers. Fixed-price packages, delivered in under 2 weeks. Based in Udaipur, Rajasthan."
         />
         <meta
           name="keywords"
-          content="wedding invitation designers udaipur, pitch deck design india, wedding stationery, event printables, affordable wedding cards, investor deck design"
+          content="web design udaipur, website development india, e-commerce website, landing page design, UI UX design, affordable website design rajasthan"
         />
         <link rel="canonical" href="https://lakecitydesigns.com" />
       </Helmet>

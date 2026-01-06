@@ -3,19 +3,19 @@ import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Lakecity turned our 40-slide mess into a ₹1.2 Cr seed round in 10 days. Investors said it was the best deck they'd seen.",
-    author: "Aakriti",
-    role: "Founder, GreenLoop",
+    quote: "Our new website increased our leads by 300% in just 2 months. The design is clean, fast, and our customers love it.",
+    author: "Amit K.",
+    role: "Restaurant Owner",
   },
   {
-    quote: "Our wedding invitations were the talk of the event. Guests kept asking where we got them designed. Delivered in just 5 days!",
-    author: "Priya & Rahul",
-    role: "Wedding Clients",
+    quote: "They delivered our e-commerce store ahead of schedule. Sales have been incredible since launch!",
+    author: "Sneha M.",
+    role: "Fashion Boutique",
   },
   {
-    quote: "Professional, fast, and incredibly creative. The event signage elevated our entire corporate summit.",
-    author: "Vikram Sharma",
-    role: "Event Manager, TechCon India",
+    quote: "Professional, responsive, and incredibly talented. Our landing page converts like crazy now.",
+    author: "Rajesh P.",
+    role: "SaaS Founder",
   },
 ];
 

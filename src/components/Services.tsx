@@ -1,36 +1,42 @@
-import { Heart, Presentation, PartyPopper, Globe, Palette, ArrowRight } from "lucide-react";
+import { Globe, Palette, ShoppingCart, Smartphone, Search, Rocket, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: Heart,
-    title: "Wedding Stationery",
-    price: "₹15k onwards",
-    description: "Invitations, save-the-dates, menus & more",
-  },
-  {
-    icon: Presentation,
-    title: "Pitch Decks",
-    price: "₹25k onwards",
-    description: "Investor-ready presentations that win funding",
-  },
-  {
-    icon: PartyPopper,
-    title: "Event Printables",
-    price: "₹10k onwards",
-    description: "Signage, banners, programs & table cards",
-  },
-  {
     icon: Globe,
-    title: "Websites",
-    price: "₹20k onwards",
-    description: "Modern, responsive sites for your business",
+    title: "Business Websites",
+    price: "₹25k onwards",
+    description: "Modern, fast-loading sites that establish credibility",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-Commerce Stores",
+    price: "₹40k onwards",
+    description: "Online stores with secure payments & inventory management",
+  },
+  {
+    icon: Smartphone,
+    title: "Landing Pages",
+    price: "₹15k onwards",
+    description: "High-converting pages for campaigns & product launches",
   },
   {
     icon: Palette,
-    title: "Brand Identity",
-    price: "₹18k onwards",
-    description: "Logos, colors, typography & brand guidelines",
+    title: "UI/UX Design",
+    price: "₹20k onwards",
+    description: "Beautiful interfaces that users love to interact with",
+  },
+  {
+    icon: Search,
+    title: "SEO Optimization",
+    price: "₹10k onwards",
+    description: "Get found on Google with on-page & technical SEO",
+  },
+  {
+    icon: Rocket,
+    title: "Website Redesign",
+    price: "₹30k onwards",
+    description: "Transform your outdated site into a modern powerhouse",
   },
 ];
 
@@ -47,10 +53,10 @@ const Services = () => {
             Our Services
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-            What we <span className="text-gradient">create</span>
+            What we <span className="text-gradient">build</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            From weddings to websites—we bring creativity to every project.
+            From simple landing pages to complex web applications—we bring your digital vision to life.
           </p>
         </div>
 
@@ -84,7 +90,7 @@ const Services = () => {
 
         {/* Custom Quote CTA */}
         <div className="mt-12 text-center p-8 rounded-2xl bg-secondary/30 border border-border">
-          <h3 className="text-xl font-display font-bold mb-2">Need something else?</h3>
+          <h3 className="text-xl font-display font-bold mb-2">Need something custom?</h3>
           <p className="text-muted-foreground mb-4">
             Every project is unique. Let's discuss your requirements.
           </p>

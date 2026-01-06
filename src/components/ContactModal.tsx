@@ -15,11 +15,11 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
   const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
-  const [selectedNumber, setSelectedNumber] = useState<"govind" | "prachi">("govind");
+  const [selectedNumber, setSelectedNumber] = useState<"primary" | "secondary">("primary");
 
   const phoneNumbers = {
-    govind: "919675624255",
-    prachi: "918875584397",
+    primary: "919675624255",
+    secondary: "918875584397",
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,9 +28,9 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
     let whatsappMessage = "";
     
     if (type === "call") {
-      whatsappMessage = `Hi! I'd like to book a call with Lakecity Designs.\n\nName: ${name}\nProject Type: ${projectType}\nPreferred Time: ${preferredTime}\n${message ? `\nAdditional Info: ${message}` : ""}`;
+      whatsappMessage = `Hi! I'd like to book a call with Lakecity Design.\n\nName: ${name}\nProject Type: ${projectType}\nPreferred Time: ${preferredTime}\n${message ? `\nAdditional Info: ${message}` : ""}`;
     } else {
-      whatsappMessage = `Hi! I'm interested in working with Lakecity Designs.\n\nName: ${name}\nProject Type: ${projectType}\n${message ? `\nDetails: ${message}` : ""}`;
+      whatsappMessage = `Hi! I'm interested in working with Lakecity Design.\n\nName: ${name}\nProject Type: ${projectType}\n${message ? `\nDetails: ${message}` : ""}`;
     }
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -113,11 +113,12 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
               className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none transition-colors appearance-none cursor-pointer"
             >
               <option value="">Select a service</option>
-              <option value="Wedding Stationery">Wedding Stationery</option>
-              <option value="Pitch Deck">Pitch Deck</option>
-              <option value="Event Printables">Event Printables</option>
-              <option value="Website">Website</option>
-              <option value="Brand Identity">Brand Identity</option>
+              <option value="Business Website">Business Website</option>
+              <option value="E-Commerce Store">E-Commerce Store</option>
+              <option value="Landing Page">Landing Page</option>
+              <option value="UI/UX Design">UI/UX Design</option>
+              <option value="Website Redesign">Website Redesign</option>
+              <option value="SEO Optimization">SEO Optimization</option>
               <option value="Other">Something else</option>
             </select>
           </div>
@@ -153,29 +154,29 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
 
           {/* Contact Selection */}
           <div>
-            <label className="block text-sm font-medium mb-2">Who would you like to reach?</label>
+            <label className="block text-sm font-medium mb-2">Choose a number to reach us</label>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                onClick={() => setSelectedNumber("govind")}
+                onClick={() => setSelectedNumber("primary")}
                 className={`p-3 rounded-xl border text-sm font-medium transition-all ${
-                  selectedNumber === "govind"
+                  selectedNumber === "primary"
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border hover:border-primary/50"
                 }`}
               >
-                Govind
+                +91-9675624255
               </button>
               <button
                 type="button"
-                onClick={() => setSelectedNumber("prachi")}
+                onClick={() => setSelectedNumber("secondary")}
                 className={`p-3 rounded-xl border text-sm font-medium transition-all ${
-                  selectedNumber === "prachi"
+                  selectedNumber === "secondary"
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border hover:border-primary/50"
                 }`}
               >
-                Prachi
+                +91-8875584397
               </button>
             </div>
           </div>

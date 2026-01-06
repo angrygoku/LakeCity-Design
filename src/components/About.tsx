@@ -10,22 +10,22 @@ const About = () => {
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-8">
               Your trusted partner in{" "}
-              <span className="text-gradient">creative design</span>
+              <span className="text-gradient">web design</span>
             </h2>
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-                Lakecity Designs is a design studio built on a simple belief: great design 
-                builds trust, and trust builds business. We partner with clients 
-                who value quality and understand that every visual touchpoint matters.
+                Lakecity Design is a web design studio built on a simple belief: great websites 
+                build trust, and trust builds business. We partner with clients 
+                who value quality and understand that their online presence matters.
               </p>
               <p>
-                Whether you're planning an intimate wedding, pitching to investors, 
-                organizing a corporate event, or launching your online presence—we 
+                Whether you're a startup looking for your first website, a growing business 
+                needing an e-commerce store, or an established brand ready for a redesign—we 
                 bring the same level of dedication and creativity to every project.
               </p>
               <p>
-                From business cards to full brand identities, from single invitations 
-                to complete wedding suites, from landing pages to feature-rich websites—
+                From simple landing pages to complex web applications, from local businesses 
+                to national brands—
                 <strong className="text-foreground"> no project is too small, and no vision is too big.</strong>
               </p>
             </div>
@@ -36,27 +36,27 @@ const About = () => {
             {[
               {
                 number: "01",
-                title: "Client-Focused",
+                title: "Conversion Focused",
                 description:
-                  "Your vision drives everything we do. We listen, understand, and deliver designs that reflect your unique story.",
+                  "We don't just make pretty websites—we build sites that turn visitors into paying customers.",
               },
               {
                 number: "02",
-                title: "Quality Obsessed",
+                title: "Mobile-First Design",
                 description:
-                  "Every pixel, every fold, every detail matters. We don't cut corners—we craft experiences that impress.",
+                  "Every site looks perfect on phones, tablets, and desktops. 70% of traffic is mobile—we design for that.",
               },
               {
                 number: "03",
-                title: "Reliable & Professional",
+                title: "Lightning Fast",
                 description:
-                  "Clear communication, on-time delivery, and no surprises. We value your time and trust as much as you do.",
+                  "Speed matters for SEO and conversions. Our sites load in under 3 seconds, every time.",
               },
               {
                 number: "04",
-                title: "End-to-End Service",
+                title: "Ongoing Support",
                 description:
-                  "From concept to final delivery, we handle it all. One partner for all your design needs, big or small.",
+                  "We don't disappear after launch. Get reliable support and updates whenever you need them.",
               },
             ].map((value) => (
               <div

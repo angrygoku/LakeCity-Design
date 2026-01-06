@@ -53,7 +53,7 @@ const Footer = () => {
               />
             </a>
             <p className="text-sm text-muted-foreground">
-              Wedding stationery & pitch decks that make people say 'wow'.
+              Websites that convert visitors into customers.
             </p>
           </div>
 
@@ -69,13 +69,13 @@ const Footer = () => {
                 href="tel:+919675624255"
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
-                +91-9675624255 (Govind)
+                +91-9675624255
               </a>
               <a
                 href="tel:+918875584397"
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
-                +91-8875584397 (Prachi)
+                +91-8875584397
               </a>
             </div>
           </div>
@@ -83,7 +83,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Lakecity Designs.
+              © {currentYear} Lakecity Design.
             </p>
             <p className="text-sm text-muted-foreground">
               All rights reserved.

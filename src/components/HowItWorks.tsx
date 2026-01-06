@@ -1,23 +1,23 @@
-import { FileText, Palette, Download } from "lucide-react";
+import { MessageSquare, Layout, Rocket } from "lucide-react";
 
 const steps = [
   {
-    icon: FileText,
+    icon: MessageSquare,
     number: "01",
-    title: "5-Min Brief Form",
-    description: "Fill out a quick form telling us about your project. No lengthy calls needed to get started.",
+    title: "Quick Discovery Call",
+    description: "Share your vision in a 15-minute call. We'll understand your goals, audience, and requirements.",
   },
   {
-    icon: Palette,
+    icon: Layout,
     number: "02",
-    title: "Get 2 Concepts in 24h",
-    description: "We'll send you two design directions to choose from within 24 hours.",
+    title: "Design & Development",
+    description: "We design your site and build it with clean, modern code. You'll see progress at every step.",
   },
   {
-    icon: Download,
+    icon: Rocket,
     number: "03",
-    title: "Receive Print-Ready Files",
-    description: "Get your final files plus source links. Ready to print, share, or present.",
+    title: "Launch & Support",
+    description: "We handle hosting, deployment, and ongoing maintenance. You focus on running your business.",
   },
 ];
 
@@ -34,7 +34,7 @@ const HowItWorks = () => {
             How It <span className="text-gradient">Works</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            No endless back-and-forth. Just a simple 3-step process to get your designs done.
+            From idea to live website in 3 simple steps. No tech headaches, just results.
           </p>
         </div>
 
