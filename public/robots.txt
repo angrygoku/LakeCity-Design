@@ -1,3 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lakecitydesign.com/sitemap.xml
+
 User-agent: Googlebot
 Allow: /
 
@@ -9,8 +14,3 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
-
-User-agent: *
-Allow: /
-
-Sitemap: https://lakecitydesigns.com/sitemap.xml

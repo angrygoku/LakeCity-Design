@@ -13,16 +13,16 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Lakecity Design | Web Design & Development Studio in Udaipur</title>
+        <title>Web Design & Development in Udaipur | Lakecity Design</title>
         <meta
           name="description"
-          content="Lakecity Design builds stunning websites that convert visitors into customers. Fixed-price packages, delivered in under 2 weeks. Based in Udaipur, Rajasthan."
+          content="Professional web design & development in Udaipur. We build stunning websites that convert visitors into customers. Fixed-price packages from ₹15k. Call now!"
         />
         <meta
           name="keywords"
-          content="web design udaipur, website development india, e-commerce website, landing page design, UI UX design, affordable website design rajasthan"
+          content="web design udaipur, website development udaipur, web designer rajasthan, ecommerce website india, landing page design, UI UX design udaipur, affordable website design, business website, wordpress developer udaipur, react developer india"
         />
-        <link rel="canonical" href="https://lakecitydesigns.com" />
+        <link rel="canonical" href="https://lakecitydesign.com/" />
       </Helmet>
 
       <main className="min-h-screen bg-background">

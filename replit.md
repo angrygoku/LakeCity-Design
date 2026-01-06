@@ -1,80 +1,103 @@
-# Lakecity Designs - Creative Studio Website
+# Lakecity Design - Web Design & Development Studio
 
 ## Overview
 
-Lakecity Designs is a creative design studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a design agency based in Udaipur, India that specializes in wedding stationery, investor pitch decks, and event printables. The website features a dark sophisticated theme with coral accents, fixed-price service packages, and conversion-focused elements like WhatsApp integration and testimonial rotators.
+Lakecity Design is a web design and development studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a web design agency based in Udaipur, Rajasthan, India. It specializes in business websites, e-commerce stores, landing pages, and UI/UX design. The website features a dark sophisticated theme with coral accents, fixed-price service packages, WhatsApp-based lead capture, and comprehensive SEO optimization for Google Ads.
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+- Preferred communication style: Simple, everyday language
+- No names on contact information (just phone numbers)
+- Focus on web design and development services
+- Fixed-price "onwards" pricing strategy
+
+## SEO & Google Ads Setup
+
+### SEO Features Implemented
+- Comprehensive meta tags (title, description, keywords)
+- Open Graph and Twitter Card tags for social sharing
+- Geo tags for local SEO (Udaipur, Rajasthan)
+- Structured Data (JSON-LD) for:
+  - ProfessionalService (local business)
+  - FAQPage (rich results)
+  - Organization
+  - Service offerings with pricing
+- sitemap.xml and robots.txt configured
+- Semantic HTML structure
+- Mobile-first responsive design
+
+### Google Ads Ready
+- Placeholder code in index.html for Google Ads conversion tracking
+- Placeholder for Google Analytics 4
+- Clear CTAs optimized for conversions
+- Landing page follows Google Ads best practices:
+  - Fast loading (Vite-optimized)
+  - Clear value proposition above the fold
+  - Prominent contact buttons
+  - Trust signals (testimonials, badges)
+
+### To Activate Google Ads Tracking
+1. Get your Google Ads Conversion ID from Google Ads
+2. Uncomment the tracking code in index.html
+3. Replace `AW-YOUR_CONVERSION_ID` with your actual ID
+4. For GA4, replace `G-XXXXXXXXXX` with your GA4 Measurement ID
 
 ## System Architecture
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
 - **Build Tool**: Vite with SWC for fast compilation
-- **Styling**: Tailwind CSS with custom design tokens defined in CSS variables
-- **Component Library**: shadcn/ui components built on Radix UI primitives
-- **Routing**: React Router DOM for client-side navigation
-- **State Management**: TanStack React Query for server state, React hooks for local state
+- **Styling**: Tailwind CSS with custom design tokens
+- **Component Library**: shadcn/ui components on Radix UI
+- **Routing**: React Router DOM
+- **State Management**: React hooks for local state
 
 ### Design System
-- **Typography**: Syne (display font) and Inter (body font) from Google Fonts
-- **Color Scheme**: Dark background (HSL 240 6% 7%) with electric coral primary (HSL 12 90% 62%)
-- **Custom CSS Variables**: Gradients, shadows, and transitions defined in index.css
-- **Component Variants**: Button variants include hero, heroOutline, outline, ghost, and default styles
+- **Typography**: Syne (display) and Inter (body) from Google Fonts
+- **Color Scheme**: Dark background with electric coral primary (#E85A3C)
+- **Component Variants**: Multiple button styles (hero, heroOutline, default)
 
 ### Page Structure
-The single-page application follows a section-based layout:
-1. Navbar (fixed, with scroll-aware styling)
-2. Hero (value proposition with dual CTAs)
-3. Testimonials (auto-rotating social proof strip)
-4. HowItWorks (3-step process graphic)
-5. Services (fixed-price packages with SEO micro-copy)
+1. Navbar (fixed, scroll-aware)
+2. Hero (conversion-focused headline with dual CTAs)
+3. Testimonials (auto-rotating)
+4. HowItWorks (3-step process)
+5. Services (6 web design packages with pricing)
 6. Work (capabilities showcase)
-7. About (company story)
+7. About (company values)
 8. Contact (WhatsApp-integrated form)
-9. Footer (trust badges and quick links)
+9. Footer (trust badges, contact info)
 
-### SEO Implementation
-- React Helmet Async for meta tag management
-- Semantic HTML structure
-- SEO micro-copy embedded in service packages
-- Canonical URL and Open Graph tags configured
+### Services Offered
+- Business Websites (₹25k onwards)
+- E-Commerce Stores (₹40k onwards)
+- Landing Pages (₹15k onwards)
+- UI/UX Design (₹20k onwards)
+- SEO Optimization (₹10k onwards)
+- Website Redesign (₹30k onwards)
+
+### Contact Information
+- Phone 1: +91-9675624255
+- Phone 2: +91-8875584397
+- WhatsApp integration for all contact forms
 
 ### Path Aliases
-The project uses `@/*` alias pointing to `./src/*` for clean imports.
+`@/*` points to `./src/*`
 
 ## External Dependencies
 
-### UI Component Libraries
-- **Radix UI**: Full suite of accessible primitives (dialog, dropdown, accordion, tabs, etc.)
-- **shadcn/ui**: Pre-built component layer on top of Radix
-- **Lucide React**: Icon library
-- **class-variance-authority**: Component variant management
-- **clsx/tailwind-merge**: Utility class handling
+### UI Libraries
+- Radix UI, shadcn/ui, Lucide React
+- class-variance-authority, clsx, tailwind-merge
 
-### Form & Data
-- **React Hook Form**: Form state management with @hookform/resolvers
-- **Zod**: Schema validation (via resolvers)
-- **TanStack React Query**: Async state management
+### Form & Validation
+- React Hook Form, Zod
 
 ### Utilities
-- **date-fns**: Date formatting
-- **embla-carousel-react**: Carousel functionality
-- **input-otp**: OTP input component
-- **react-day-picker**: Calendar/date picker
-- **vaul**: Drawer component
-- **sonner**: Toast notifications
-- **next-themes**: Theme management (used for sonner integration)
+- date-fns, embla-carousel-react, sonner
 
-### Third-Party Services (Planned/Mentioned)
-- **WhatsApp Business**: Primary contact method (wa.me links)
-- **Calendly**: Booking integration (mentioned in requirements)
-- **Razorpay/UPI**: Payment processing (trust badges in footer)
-- **Google Analytics 4**: Click tracking (mentioned in requirements)
-
-### Development Tools
-- **Lovable Tagger**: Component tagging for Lovable.dev integration
-- **ESLint**: Linting with TypeScript and React plugins
-- **PostCSS/Autoprefixer**: CSS processing
+### Third-Party Services
+- WhatsApp Business (wa.me links)
+- Razorpay/UPI (payment badges)
+- Google Analytics 4 (placeholder ready)
+- Google Ads (placeholder ready)
