@@ -49,6 +49,42 @@ import aiContentGenerator from "@assets/generated_images/ai_content_generator_to
 import teamWorkspace from "@assets/generated_images/team_collaboration_workspace.png";
 import agencyDashboard from "@assets/generated_images/agency_client_dashboard.png";
 
+import bgGeometric from "@assets/generated_images/abstract_geometric_background_cream.png";
+import bgWaves from "@assets/generated_images/abstract_waves_coral_peach.png";
+
+const serviceInclusions = {
+  website: [
+    { feature: "Custom Design", basic: true, premium: true, enterprise: true },
+    { feature: "Responsive Layout", basic: true, premium: true, enterprise: true },
+    { feature: "Contact Form", basic: true, premium: true, enterprise: true },
+    { feature: "SEO Setup", basic: false, premium: true, enterprise: true },
+    { feature: "Blog Integration", basic: false, premium: true, enterprise: true },
+    { feature: "Analytics Dashboard", basic: false, premium: true, enterprise: true },
+    { feature: "Priority Support", basic: false, premium: false, enterprise: true },
+    { feature: "Custom Features", basic: false, premium: false, enterprise: true },
+  ],
+  ecommerce: [
+    { feature: "Product Catalog", basic: true, premium: true, enterprise: true },
+    { feature: "Payment Gateway", basic: true, premium: true, enterprise: true },
+    { feature: "Order Management", basic: true, premium: true, enterprise: true },
+    { feature: "Inventory Tracking", basic: false, premium: true, enterprise: true },
+    { feature: "Discount Coupons", basic: false, premium: true, enterprise: true },
+    { feature: "Multi-Currency", basic: false, premium: false, enterprise: true },
+    { feature: "Custom Checkout", basic: false, premium: false, enterprise: true },
+    { feature: "API Integration", basic: false, premium: false, enterprise: true },
+  ],
+  social: [
+    { feature: "Content Calendar", basic: true, premium: true, enterprise: true },
+    { feature: "3 Platforms", basic: true, premium: false, enterprise: false },
+    { feature: "5 Platforms", basic: false, premium: true, enterprise: false },
+    { feature: "Unlimited Platforms", basic: false, premium: false, enterprise: true },
+    { feature: "Monthly Reports", basic: true, premium: true, enterprise: true },
+    { feature: "Story Creation", basic: false, premium: true, enterprise: true },
+    { feature: "Paid Ads Management", basic: false, premium: false, enterprise: true },
+    { feature: "Influencer Outreach", basic: false, premium: false, enterprise: true },
+  ],
+};
+
 const allDesigns = [
   { src: businessMockup, title: "Business Websites", category: "web" },
   { src: ecommerceMockup, title: "E-Commerce", category: "web" },
@@ -146,10 +182,37 @@ const Index = () => {
       <main ref={containerRef} className="min-h-[1400vh] bg-background relative">
         <Navbar />
 
-        <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-[1000px] h-[1000px] bg-primary/3 rounded-full blur-[200px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[180px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/4 rounded-full blur-[150px]" />
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          <motion.img 
+            src={bgGeometric} 
+            alt="" 
+            className="absolute top-0 right-0 w-[60%] h-auto opacity-30"
+            animate={{ 
+              y: [0, -20, 0],
+              rotate: [0, 2, 0],
+            }}
+            transition={{ 
+              duration: 8, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          />
+          <motion.img 
+            src={bgWaves} 
+            alt="" 
+            className="absolute bottom-0 left-0 w-[70%] h-auto opacity-25"
+            animate={{ 
+              x: [0, 20, 0],
+              scale: [1, 1.02, 1],
+            }}
+            transition={{ 
+              duration: 10, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[150px]" />
+          <div className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
         </div>
 
         <motion.section 
@@ -504,6 +567,175 @@ const Index = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <div className="h-[20vh]" />
+
+        <section className="relative z-30 py-24">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">What's Included</span>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                Website <span className="text-gradient">Packages</span>
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="overflow-x-auto"
+            >
+              <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="p-4 md:p-6 text-left font-display font-bold text-foreground">Feature</th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-foreground">
+                      <div>Basic</div>
+                      <div className="text-primary text-sm font-normal">₹25k</div>
+                    </th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-primary bg-primary/5">
+                      <div>Premium</div>
+                      <div className="text-primary text-sm font-normal">₹45k</div>
+                    </th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-foreground">
+                      <div>Enterprise</div>
+                      <div className="text-primary text-sm font-normal">₹75k+</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {serviceInclusions.website.map((row, i) => (
+                    <tr key={i} className="border-b border-border/50 last:border-0">
+                      <td className="p-4 md:p-6 text-muted-foreground">{row.feature}</td>
+                      <td className="p-4 md:p-6 text-center">{row.basic ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                      <td className="p-4 md:p-6 text-center bg-primary/5">{row.premium ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                      <td className="p-4 md:p-6 text-center">{row.enterprise ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="h-[10vh]" />
+
+        <section className="relative z-30 py-24">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                E-Commerce <span className="text-gradient">Packages</span>
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="overflow-x-auto"
+            >
+              <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="p-4 md:p-6 text-left font-display font-bold text-foreground">Feature</th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-foreground">
+                      <div>Starter</div>
+                      <div className="text-primary text-sm font-normal">₹40k</div>
+                    </th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-primary bg-primary/5">
+                      <div>Growth</div>
+                      <div className="text-primary text-sm font-normal">₹70k</div>
+                    </th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-foreground">
+                      <div>Scale</div>
+                      <div className="text-primary text-sm font-normal">₹1.2L+</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {serviceInclusions.ecommerce.map((row, i) => (
+                    <tr key={i} className="border-b border-border/50 last:border-0">
+                      <td className="p-4 md:p-6 text-muted-foreground">{row.feature}</td>
+                      <td className="p-4 md:p-6 text-center">{row.basic ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                      <td className="p-4 md:p-6 text-center bg-primary/5">{row.premium ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                      <td className="p-4 md:p-6 text-center">{row.enterprise ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="h-[10vh]" />
+
+        <section className="relative z-30 py-24">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                Social Media <span className="text-gradient">Packages</span>
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="overflow-x-auto"
+            >
+              <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="p-4 md:p-6 text-left font-display font-bold text-foreground">Feature</th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-foreground">
+                      <div>Essential</div>
+                      <div className="text-primary text-sm font-normal">₹15k/mo</div>
+                    </th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-primary bg-primary/5">
+                      <div>Professional</div>
+                      <div className="text-primary text-sm font-normal">₹30k/mo</div>
+                    </th>
+                    <th className="p-4 md:p-6 text-center font-display font-bold text-foreground">
+                      <div>Agency</div>
+                      <div className="text-primary text-sm font-normal">₹50k+/mo</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {serviceInclusions.social.map((row, i) => (
+                    <tr key={i} className="border-b border-border/50 last:border-0">
+                      <td className="p-4 md:p-6 text-muted-foreground">{row.feature}</td>
+                      <td className="p-4 md:p-6 text-center">{row.basic ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                      <td className="p-4 md:p-6 text-center bg-primary/5">{row.premium ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                      <td className="p-4 md:p-6 text-center">{row.enterprise ? <span className="text-primary text-xl">✓</span> : <span className="text-muted-foreground/30">—</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
           </div>
         </section>
 
