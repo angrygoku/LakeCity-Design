@@ -1,4 +1,5 @@
-import { Globe, Palette, ShoppingCart, Smartphone, ArrowRight } from "lucide-react";
+import { Globe, Palette, ShoppingCart, Smartphone, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "./ContactModalContext";
 
@@ -51,9 +52,15 @@ const Work = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
             Projects that <span className="text-gradient">deliver results</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             From concept to launch, we create digital experiences that help businesses grow and succeed online.
           </p>
+          <Link to="/inspiration">
+            <Button variant="outline" className="gap-2">
+              <Sparkles className="w-4 h-4" />
+              Browse 40+ Design Inspirations
+            </Button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">

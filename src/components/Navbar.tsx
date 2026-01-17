@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useContactModal } from "./ContactModalContext";
@@ -7,6 +8,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { openModal } = useContactModal();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,9 +22,17 @@ const Navbar = () => {
   const navLinks = [
     { href: "#services", label: "Services" },
     { href: "#work", label: "Work" },
+    { href: "/inspiration", label: "Inspiration", isRoute: true },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ];
+
+  const handleSectionClick = (e: React.MouseEvent, href: string) => {
+    if (!isHomePage && href.startsWith("#")) {
+      e.preventDefault();
+      window.location.href = "/" + href;
+    }
+  };
 
   return (
     <nav
@@ -33,9 +44,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a
-            href="#"
+          <Link
+            to="/"
             className="hover:opacity-80 transition-opacity"
           >
             <img 
@@ -43,29 +53,37 @@ const Navbar = () => {
               alt="Lakecity Design" 
               className="h-8 md:h-10 w-auto"
             />
-          </a>
+          </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={isHomePage ? link.href : "/" + link.href}
+                  onClick={(e) => handleSectionClick(e, link.href)}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </div>
 
-          {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="default" size="default" onClick={() => openModal("project")}>
               Start a Project
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -74,19 +92,32 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-6 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={isHomePage ? link.href : "/" + link.href}
+                    onClick={(e) => {
+                      handleSectionClick(e, link.href);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               <Button 
                 variant="default" 
