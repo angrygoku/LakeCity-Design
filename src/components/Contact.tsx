@@ -33,7 +33,7 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    window.open("https://instagram.com/lakecitydesign", "_blank");
+    window.open("https://instagram.com/lakecity.designs", "_blank");
 
     toast({
       title: "Opening Instagram",
@@ -136,7 +136,7 @@ const Contact = () => {
                 </div>
 
                 <a
-                  href="https://instagram.com/lakecitydesign"
+                  href="https://instagram.com/lakecity.designs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-background/50 border border-border hover:border-purple-500/50 transition-all group"
@@ -146,7 +146,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      @lakecitydesign
+                      @lakecity.designs
                     </p>
                     <p className="text-sm text-muted-foreground">Follow & DM us</p>
                   </div>

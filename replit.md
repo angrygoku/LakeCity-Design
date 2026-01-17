@@ -111,7 +111,7 @@ Lakecity Design is a web design and development studio website built with React,
 - SEO Optimization (₹10k onwards)
 
 ### Contact Information
-- Instagram: @lakecitydesign
+- Instagram: @lakecity.designs
 - Location: Udaipur, Rajasthan, India
 
 ### Path Aliases
@@ -130,7 +130,7 @@ Lakecity Design is a web design and development studio website built with React,
 - date-fns, embla-carousel-react, sonner
 
 ### Third-Party Services
-- Instagram (@lakecitydesign)
+- Instagram (@lakecity.designs)
 - Razorpay/UPI (payment badges)
 - Google Analytics 4 (placeholder ready)
 - Google Ads (placeholder ready)

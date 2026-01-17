@@ -37,7 +37,7 @@ const Footer = () => {
               <img 
                 src="/logo.png" 
                 alt="Lakecity Design" 
-                className="h-32 w-auto mx-auto md:mx-0"
+                className="h-20 md:h-32 w-auto mx-auto md:mx-0"
               />
             </a>
             <p className="text-sm text-muted-foreground">
@@ -52,13 +52,13 @@ const Footer = () => {
             </h4>
             <p className="text-sm text-muted-foreground mb-4">Follow us on Instagram</p>
             <a
-              href="https://instagram.com/lakecitydesign"
+              href="https://instagram.com/lakecity.designs"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass text-foreground hover:text-primary transition-colors font-medium"
             >
               <Instagram className="w-5 h-5" />
-              @lakecitydesign
+              @lakecity.designs
             </a>
           </div>
 

@@ -76,7 +76,7 @@ const Index = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 inline-flex items-center gap-2 px-6 py-3 rounded-full glass"
+              className="mb-4 md:mb-8 inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full glass"
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-primary text-sm font-medium">Web Design Studio in Udaipur</span>
@@ -85,7 +85,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="text-6xl md:text-8xl lg:text-[10rem] font-display font-bold leading-[0.85] mb-8"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] font-display font-bold leading-[0.85] mb-6 md:mb-8"
             >
               <span className="text-gradient">Digital</span>
               <br />
@@ -95,7 +95,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-12"
+              className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12 px-4"
             >
               Premium websites & social media management for ambitious brands
             </motion.p>
@@ -115,7 +115,7 @@ const Index = () => {
           </div>
         </motion.section>
 
-        <div className="h-[110vh]" />
+        <div className="h-[100vh] md:h-[110vh]" />
 
         <section className="relative z-20 py-12">
           <div className="container mx-auto px-4 md:px-6">

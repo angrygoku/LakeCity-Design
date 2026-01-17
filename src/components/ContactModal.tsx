@@ -19,7 +19,7 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    window.open("https://instagram.com/lakecitydesign", "_blank");
+    window.open("https://instagram.com/lakecity.designs", "_blank");
     onClose();
     
     setName("");
@@ -134,7 +134,7 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
               <span className="font-medium">Connect with us on Instagram</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              DM us @lakecitydesign with your project details
+              DM us @lakecity.designs with your project details
             </p>
           </div>
 

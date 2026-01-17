@@ -183,7 +183,7 @@ const Packages = () => {
           <div className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
         </div>
 
-        <section className="relative z-20 pt-32 md:pt-40 pb-12 md:pb-16">
+        <section className="relative z-20 pt-24 md:pt-32 lg:pt-40 pb-12 md:pb-16">
           <div className="container mx-auto px-4 lg:px-12">
             <div className="text-center mb-10 md:mb-16">
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-3 md:mb-6">Our Services</span>

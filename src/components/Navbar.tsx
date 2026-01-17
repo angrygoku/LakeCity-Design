@@ -42,7 +42,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-16 md:h-24">
           <Link
             to="/"
             className="hover:opacity-80 transition-opacity"
@@ -50,7 +50,7 @@ const Navbar = () => {
             <img 
               src="/logo.png" 
               alt="Lakecity Design" 
-              className="h-20 md:h-28 w-auto"
+              className="h-14 md:h-20 lg:h-28 w-auto"
             />
           </Link>
 
