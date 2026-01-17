@@ -14,6 +14,10 @@ Lakecity Design is a web design and development studio website built with React,
 - Service comparison tables for Website, E-Commerce, and Social Media packages
 - Bigger logo (h-20 md:h-28)
 - 40 design mockups across Web, E-Commerce, and Social Media sections
+- Mobile-optimized animations with 4 section types (fadeUp, fadeScale, slideLeft, slideRight)
+- Mobile-friendly pricing tables converted to card layout
+- Improved mobile typography and spacing throughout
+- Staggered reveal animations for grid items
 
 ## User Preferences
 
