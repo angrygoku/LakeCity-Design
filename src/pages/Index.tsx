@@ -151,34 +151,6 @@ const features = [
   { title: "Full Ownership", desc: "Complete source files and rights transferred to you" },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
-  }
-};
-
-const fadeUpVariant = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
-
-const fadeScaleVariant = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
-};
-
-const slideLeftVariant = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
-};
-
-const slideRightVariant = {
-  hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
-};
-
 const Index = () => {
   const { openModal } = useContactModal();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -293,43 +265,28 @@ const Index = () => {
 
         <div className="h-[110vh]" />
 
-        <motion.section 
-          className="relative z-20 py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-20 py-12">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {stats.map((stat) => (
-                <motion.div
+                <div
                   key={stat.label}
-                  variants={fadeScaleVariant}
-                  whileHover={{ scale: 1.05, y: -4 }}
-                  className="p-4 md:p-6 rounded-2xl glass text-center cursor-default"
+                  className="p-4 md:p-6 rounded-2xl glass text-center cursor-default hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300"
                 >
                   <stat.icon className="w-6 h-6 md:w-7 md:h-7 text-primary mx-auto mb-2 md:mb-3" />
                   <div className="text-xl md:text-3xl font-display font-bold text-foreground mb-1">{stat.value}</div>
                   <div className="text-muted-foreground text-[10px] md:text-xs leading-tight">{stat.label}</div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[10vh]" />
 
-        <motion.section 
-          id="work" 
-          className="relative z-20 py-12 md:py-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
+        <section id="work" className="relative z-20 py-12 md:py-16">
           <div className="container mx-auto px-4 lg:px-6">
-            <motion.div variants={fadeUpVariant} className="text-center mb-8 md:mb-10">
+            <div className="text-center mb-8 md:mb-10">
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-3 md:mb-4">Our Portfolio</span>
               <h2 className="text-3xl md:text-6xl font-display font-bold mb-3 md:mb-4">
                 <span className="text-gradient">Web</span> Design
@@ -337,79 +294,57 @@ const Index = () => {
               <p className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 Stunning websites that convert visitors into customers
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
               {allDesigns.slice(0, 10).map((design, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeScaleVariant}
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedImage(i)}
-                  className="group relative aspect-square rounded-xl md:rounded-2xl overflow-hidden cursor-pointer glass"
+                  className="group relative aspect-square rounded-xl md:rounded-2xl overflow-hidden cursor-pointer glass hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300"
                 >
                   <img 
                     src={design.src} 
                     alt={design.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-white font-semibold text-xs md:text-sm">{design.title}</span>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          className="relative z-20 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-20 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-              <motion.div
-                variants={slideLeftVariant}
-                whileHover={{ y: -4 }}
-                className="p-6 md:p-12 rounded-2xl md:rounded-[2rem] glass-strong"
-              >
+              <div className="p-6 md:p-12 rounded-2xl md:rounded-[2rem] glass-strong hover:-translate-y-1 transition-transform duration-300">
                 <Globe className="w-10 h-10 md:w-12 md:h-12 text-primary mb-4 md:mb-6" />
                 <h3 className="text-2xl md:text-4xl font-display font-bold mb-2 md:mb-4">Business Websites</h3>
                 <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6">Professional online presence that builds trust and converts visitors into customers.</p>
                 <div className="text-3xl md:text-4xl font-display font-bold text-primary">₹25,000+</div>
-              </motion.div>
-              <motion.div
-                variants={slideRightVariant}
-                whileHover={{ y: -4 }}
-                className="p-6 md:p-12 rounded-2xl md:rounded-[2rem] glass"
-              >
+              </div>
+              <div className="p-6 md:p-12 rounded-2xl md:rounded-[2rem] glass hover:-translate-y-1 transition-transform duration-300">
                 <Zap className="w-10 h-10 md:w-12 md:h-12 text-primary mb-4 md:mb-6" />
                 <h3 className="text-2xl md:text-4xl font-display font-bold mb-2 md:mb-4">Landing Pages</h3>
                 <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6">High-converting pages designed to capture leads and drive sales.</p>
                 <div className="text-3xl md:text-4xl font-display font-bold text-primary">₹15,000+</div>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[10vh]" />
 
-        <motion.section 
-          className="relative z-20 py-12 md:py-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-20 py-12 md:py-16">
           <div className="container mx-auto px-4 lg:px-6">
-            <motion.div variants={fadeUpVariant} className="text-center mb-8 md:mb-16">
+            <div className="text-center mb-8 md:mb-16">
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-3 md:mb-6">Online Stores</span>
               <h2 className="text-3xl md:text-7xl font-display font-bold mb-3 md:mb-6">
                 <span className="text-gradient">E-Commerce</span> Solutions
@@ -417,48 +352,36 @@ const Index = () => {
               <p className="text-sm md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                 Beautiful online stores that make selling effortless
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4">
               {allDesigns.slice(10, 20).map((design, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeScaleVariant}
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedImage(i + 10)}
-                  className="group relative aspect-square rounded-xl md:rounded-2xl overflow-hidden cursor-pointer glass"
+                  className="group relative aspect-square rounded-xl md:rounded-2xl overflow-hidden cursor-pointer glass hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300"
                 >
                   <img 
                     src={design.src} 
                     alt={design.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-white font-semibold text-xs md:text-sm">{design.title}</span>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          className="relative z-20 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-20 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              variants={fadeUpVariant}
-              whileHover={{ y: -4 }}
-              className="p-6 md:p-16 rounded-2xl md:rounded-[2rem] glass-strong text-center"
-            >
+            <div className="p-6 md:p-16 rounded-2xl md:rounded-[2rem] glass-strong text-center hover:-translate-y-1 transition-transform duration-300">
               <ShoppingCart className="w-12 h-12 md:w-16 md:h-16 text-primary mx-auto mb-4 md:mb-8" />
               <h3 className="text-2xl md:text-5xl font-display font-bold mb-3 md:mb-6">E-Commerce Stores</h3>
               <p className="text-sm md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 md:mb-8 px-2">
@@ -467,30 +390,20 @@ const Index = () => {
               <div className="text-3xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-8">₹40,000+</div>
               <div className="flex flex-wrap justify-center gap-2 md:gap-4">
                 {["Razorpay", "UPI", "Shopify", "WooCommerce", "Custom"].map((tag) => (
-                  <motion.span 
-                    key={tag} 
-                    variants={fadeScaleVariant}
-                    className="px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-xs md:text-sm"
-                  >
+                  <span key={tag} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-xs md:text-sm">
                     {tag}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[10vh]" />
 
-        <motion.section 
-          className="relative z-20 py-12 md:py-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-20 py-12 md:py-16">
           <div className="container mx-auto px-4 lg:px-6">
-            <motion.div variants={fadeUpVariant} className="text-center mb-8 md:mb-16">
+            <div className="text-center mb-8 md:mb-16">
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-3 md:mb-6">Brand Growth</span>
               <h2 className="text-3xl md:text-7xl font-display font-bold mb-3 md:mb-6">
                 <span className="text-gradient">Social Media</span>
@@ -498,78 +411,63 @@ const Index = () => {
               <p className="text-sm md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                 Grow your brand presence across all platforms
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4">
               {allDesigns.slice(20, 40).map((design, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeScaleVariant}
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedImage(i + 20)}
-                  className="group relative aspect-square rounded-xl md:rounded-2xl overflow-hidden cursor-pointer glass"
+                  className="group relative aspect-square rounded-xl md:rounded-2xl overflow-hidden cursor-pointer glass hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300"
                 >
                   <img 
                     src={design.src} 
                     alt={design.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-white font-semibold text-xs md:text-sm">{design.title}</span>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          className="relative z-20 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-20 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              <motion.div variants={slideLeftVariant} whileHover={{ y: -4 }} className="p-5 md:p-8 rounded-2xl glass">
+              <div className="p-5 md:p-8 rounded-2xl glass hover:-translate-y-1 transition-transform duration-300">
                 <Users className="w-8 h-8 md:w-10 md:h-10 text-primary mb-3 md:mb-4" />
                 <h4 className="text-lg md:text-xl font-display font-bold mb-1 md:mb-2">Social Media</h4>
                 <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4">Complete presence management</p>
                 <div className="text-xl md:text-2xl font-display font-bold text-primary">₹15,000+/mo</div>
-              </motion.div>
-              <motion.div variants={fadeUpVariant} whileHover={{ y: -4 }} className="p-5 md:p-8 rounded-2xl glass">
+              </div>
+              <div className="p-5 md:p-8 rounded-2xl glass hover:-translate-y-1 transition-transform duration-300">
                 <Palette className="w-8 h-8 md:w-10 md:h-10 text-primary mb-3 md:mb-4" />
                 <h4 className="text-lg md:text-xl font-display font-bold mb-1 md:mb-2">UI/UX Design</h4>
                 <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4">Beautiful user interfaces</p>
                 <div className="text-xl md:text-2xl font-display font-bold text-primary">₹20,000+</div>
-              </motion.div>
-              <motion.div variants={slideRightVariant} whileHover={{ y: -4 }} className="p-5 md:p-8 rounded-2xl glass">
+              </div>
+              <div className="p-5 md:p-8 rounded-2xl glass hover:-translate-y-1 transition-transform duration-300">
                 <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-primary mb-3 md:mb-4" />
                 <h4 className="text-lg md:text-xl font-display font-bold mb-1 md:mb-2">SEO Optimization</h4>
                 <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4">Rank higher on Google</p>
                 <div className="text-xl md:text-2xl font-display font-bold text-primary">₹10,000+</div>
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[10vh]" />
 
-        <motion.section 
-          id="services" 
-          className="relative z-30 bg-background py-12 md:py-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
+        <section id="services" className="relative z-30 bg-background py-12 md:py-16">
           <div className="container mx-auto px-4 lg:px-12">
-            <motion.div variants={fadeUpVariant} className="text-center mb-10 md:mb-20">
+            <div className="text-center mb-10 md:mb-20">
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-3 md:mb-6">Pricing</span>
               <h2 className="text-3xl md:text-7xl font-display font-bold mb-3 md:mb-6">
                 All <span className="text-gradient">Services</span>
@@ -577,43 +475,34 @@ const Index = () => {
               <p className="text-sm md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                 Transparent, fixed pricing with no hidden costs
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
               {services.map((service) => (
-                <motion.div
+                <div
                   key={service.title}
-                  variants={fadeScaleVariant}
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group p-4 md:p-10 rounded-2xl glass cursor-default"
+                  className="group p-4 md:p-10 rounded-2xl glass cursor-default hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300"
                 >
                   <service.icon className="w-8 h-8 md:w-10 md:h-10 text-primary mb-3 md:mb-6 group-hover:scale-110 transition-transform" />
                   <h3 className="text-base md:text-2xl font-display font-bold mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight">{service.title}</h3>
                   <p className="text-primary text-lg md:text-3xl font-bold mb-1 md:mb-3">{service.price}</p>
                   <p className="text-muted-foreground text-xs md:text-base leading-tight">{service.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          className="relative z-30 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-30 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div variants={fadeUpVariant} className="text-center mb-8 md:mb-16">
+            <div className="text-center mb-8 md:mb-16">
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-3 md:mb-6">What's Included</span>
               <h2 className="text-2xl md:text-5xl font-display font-bold mb-3 md:mb-6">
                 Website <span className="text-gradient">Packages</span>
               </h2>
-            </motion.div>
+            </div>
 
             <div className="md:hidden grid grid-cols-3 gap-2">
               {[
@@ -621,11 +510,7 @@ const Index = () => {
                 { name: "Premium", price: "₹45k", features: serviceInclusions.website.filter(f => f.premium), popular: true },
                 { name: "Enterprise", price: "₹75k+", features: serviceInclusions.website.filter(f => f.enterprise) },
               ].map((pkg) => (
-                <motion.div 
-                  key={pkg.name} 
-                  variants={fadeScaleVariant}
-                  className={`p-3 rounded-xl ${pkg.popular ? 'glass-strong' : 'glass'}`}
-                >
+                <div key={pkg.name} className={`p-3 rounded-xl ${pkg.popular ? 'glass-strong' : 'glass'}`}>
                   <div className="text-center mb-3">
                     <div className={`text-xs font-bold ${pkg.popular ? 'text-primary' : 'text-foreground'}`}>{pkg.name}</div>
                     <div className="text-primary text-sm font-bold">{pkg.price}</div>
@@ -637,11 +522,11 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div variants={fadeUpVariant} className="hidden md:block overflow-x-auto">
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full glass rounded-2xl overflow-hidden">
                 <thead>
                   <tr className="border-b border-border">
@@ -662,25 +547,19 @@ const Index = () => {
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[10vh]" />
 
-        <motion.section 
-          className="relative z-30 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-30 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div variants={fadeUpVariant} className="text-center mb-8 md:mb-16">
+            <div className="text-center mb-8 md:mb-16">
               <h2 className="text-2xl md:text-5xl font-display font-bold mb-3 md:mb-6">
                 E-Commerce <span className="text-gradient">Packages</span>
               </h2>
-            </motion.div>
+            </div>
 
             <div className="md:hidden grid grid-cols-3 gap-2">
               {[
@@ -688,11 +567,7 @@ const Index = () => {
                 { name: "Growth", price: "₹70k", features: serviceInclusions.ecommerce.filter(f => f.premium), popular: true },
                 { name: "Scale", price: "₹1.2L+", features: serviceInclusions.ecommerce.filter(f => f.enterprise) },
               ].map((pkg) => (
-                <motion.div 
-                  key={pkg.name} 
-                  variants={fadeScaleVariant}
-                  className={`p-3 rounded-xl ${pkg.popular ? 'glass-strong' : 'glass'}`}
-                >
+                <div key={pkg.name} className={`p-3 rounded-xl ${pkg.popular ? 'glass-strong' : 'glass'}`}>
                   <div className="text-center mb-3">
                     <div className={`text-xs font-bold ${pkg.popular ? 'text-primary' : 'text-foreground'}`}>{pkg.name}</div>
                     <div className="text-primary text-sm font-bold">{pkg.price}</div>
@@ -704,11 +579,11 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div variants={fadeUpVariant} className="hidden md:block overflow-x-auto">
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full glass rounded-2xl overflow-hidden">
                 <thead>
                   <tr className="border-b border-border">
@@ -729,25 +604,19 @@ const Index = () => {
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[10vh]" />
 
-        <motion.section 
-          className="relative z-30 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-30 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div variants={fadeUpVariant} className="text-center mb-8 md:mb-16">
+            <div className="text-center mb-8 md:mb-16">
               <h2 className="text-2xl md:text-5xl font-display font-bold mb-3 md:mb-6">
                 Social Media <span className="text-gradient">Packages</span>
               </h2>
-            </motion.div>
+            </div>
 
             <div className="md:hidden grid grid-cols-3 gap-2">
               {[
@@ -755,11 +624,7 @@ const Index = () => {
                 { name: "Pro", price: "₹30k/mo", features: serviceInclusions.social.filter(f => f.premium), popular: true },
                 { name: "Agency", price: "₹50k+/mo", features: serviceInclusions.social.filter(f => f.enterprise) },
               ].map((pkg) => (
-                <motion.div 
-                  key={pkg.name} 
-                  variants={fadeScaleVariant}
-                  className={`p-3 rounded-xl ${pkg.popular ? 'glass-strong' : 'glass'}`}
-                >
+                <div key={pkg.name} className={`p-3 rounded-xl ${pkg.popular ? 'glass-strong' : 'glass'}`}>
                   <div className="text-center mb-3">
                     <div className={`text-xs font-bold ${pkg.popular ? 'text-primary' : 'text-foreground'}`}>{pkg.name}</div>
                     <div className="text-primary text-sm font-bold">{pkg.price}</div>
@@ -771,11 +636,11 @@ const Index = () => {
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div variants={fadeUpVariant} className="hidden md:block overflow-x-auto">
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full glass rounded-2xl overflow-hidden">
                 <thead>
                   <tr className="border-b border-border">
@@ -796,49 +661,34 @@ const Index = () => {
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          className="relative z-30 py-10 md:py-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={sectionVariants}
-        >
+        <section className="relative z-30 py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
               {features.map((feature) => (
-                <motion.div
+                <div
                   key={feature.title}
-                  variants={fadeScaleVariant}
-                  whileHover={{ y: -4 }}
-                  className="p-4 md:p-6 rounded-xl md:rounded-2xl glass"
+                  className="p-4 md:p-6 rounded-xl md:rounded-2xl glass hover:-translate-y-1 transition-transform duration-300"
                 >
                   <h4 className="text-sm md:text-lg font-display font-bold text-primary mb-1 md:mb-2">{feature.title}</h4>
                   <p className="text-muted-foreground text-xs md:text-sm leading-tight">{feature.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          id="about" 
-          className="relative z-30 bg-background py-12 md:py-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
+        <section id="about" className="relative z-30 bg-background py-12 md:py-16">
           <div className="container mx-auto px-4 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-              <motion.div variants={slideLeftVariant}>
+              <div>
                 <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-4 md:mb-6">About Us</span>
                 <h2 className="text-2xl md:text-6xl font-display font-bold mb-4 md:mb-6">
                   We craft <span className="text-gradient">digital excellence</span>
@@ -848,51 +698,40 @@ const Index = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 md:gap-3">
                   {["Fast Delivery", "Premium Quality", "Ongoing Support", "Fixed Pricing", "Full Ownership", "SEO Ready"].map((tag) => (
-                    <motion.span 
-                      key={tag} 
-                      variants={fadeScaleVariant}
-                      className="px-3 py-1.5 md:px-4 md:py-2 rounded-full glass font-medium text-xs md:text-sm"
-                    >
+                    <span key={tag} className="px-3 py-1.5 md:px-4 md:py-2 rounded-full glass font-medium text-xs md:text-sm">
                       {tag}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
-              </motion.div>
-              <motion.div variants={slideRightVariant} className="grid grid-cols-2 gap-3 md:gap-4">
-                <motion.div whileHover={{ y: -4 }} className="p-4 md:p-8 rounded-2xl glass-strong text-center">
+              </div>
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
+                <div className="p-4 md:p-8 rounded-2xl glass-strong text-center hover:-translate-y-1 transition-transform duration-300">
                   <div className="text-3xl md:text-5xl font-display font-bold text-primary mb-1 md:mb-2">50+</div>
                   <div className="text-muted-foreground text-xs md:text-base">Projects</div>
-                </motion.div>
-                <motion.div whileHover={{ y: -4 }} className="p-4 md:p-8 rounded-2xl glass text-center">
+                </div>
+                <div className="p-4 md:p-8 rounded-2xl glass text-center hover:-translate-y-1 transition-transform duration-300">
                   <div className="text-3xl md:text-5xl font-display font-bold text-primary mb-1 md:mb-2">100%</div>
                   <div className="text-muted-foreground text-xs md:text-base">Satisfaction</div>
-                </motion.div>
-                <motion.div whileHover={{ y: -4 }} className="p-4 md:p-8 rounded-2xl glass text-center">
+                </div>
+                <div className="p-4 md:p-8 rounded-2xl glass text-center hover:-translate-y-1 transition-transform duration-300">
                   <div className="text-3xl md:text-5xl font-display font-bold text-primary mb-1 md:mb-2">₹15k</div>
                   <div className="text-muted-foreground text-xs md:text-base">Starting Price</div>
-                </motion.div>
-                <motion.div whileHover={{ y: -4 }} className="p-4 md:p-8 rounded-2xl glass-strong text-center">
+                </div>
+                <div className="p-4 md:p-8 rounded-2xl glass-strong text-center hover:-translate-y-1 transition-transform duration-300">
                   <div className="text-3xl md:text-5xl font-display font-bold text-primary mb-1 md:mb-2">24/7</div>
                   <div className="text-muted-foreground text-xs md:text-base">Support</div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <div className="h-[8vh]" />
 
-        <motion.section 
-          id="contact" 
-          className="relative z-30 bg-background py-12 md:py-16 overflow-hidden"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
+        <section id="contact" className="relative z-30 bg-background py-12 md:py-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
           <div className="container mx-auto px-4 lg:px-12 text-center relative z-10">
-            <motion.div variants={fadeUpVariant}>
+            <div>
               <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full glass text-primary text-xs md:text-sm font-medium mb-4 md:mb-6">Get Started</span>
               <h2 className="text-3xl md:text-8xl font-display font-bold mb-4 md:mb-8">
                 Let's <span className="text-gradient">Create</span>
@@ -900,10 +739,7 @@ const Index = () => {
               <p className="text-sm md:text-xl text-muted-foreground mb-8 md:mb-12 max-w-xl mx-auto px-4">
                 Your next project starts with a conversation. Reach out and let's build something amazing together.
               </p>
-              <motion.div 
-                variants={fadeScaleVariant}
-                className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
-              >
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
                 <Button 
                   size="lg" 
                   onClick={() => openModal("project")}
@@ -915,14 +751,14 @@ const Index = () => {
                 <Button size="lg" variant="outline" onClick={() => openModal("project")} className="gap-2 rounded-full w-full sm:w-auto">
                   Start a Project <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </Button>
-              </motion.div>
+              </div>
               <div className="mt-8 md:mt-12 flex flex-col items-center gap-1 md:gap-2 text-muted-foreground text-sm md:text-base">
                 <p>+91-9675624255</p>
                 <p>+91-8875584397</p>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         <Footer />
 
