@@ -6,12 +6,13 @@ Lakecity Design is a web design and development studio website built with React,
 
 ## Recent Updates
 - Light cream theme with warm coral accent color
+- Glassmorphism design with frosted glass cards and boxes
 - Animated background images (geometric shapes and waves)
+- All buttons and footer rounded with pill shapes
+- Square image grid layout (aspect-square)
+- Reduced spacing between sections for tighter layout
 - Service comparison tables for Website, E-Commerce, and Social Media packages
-- Extended scroll experience (1400vh) with no overlapping sections
-- Maximalist design with info boxes, stat cards, and feature sections
-- Stats section after hero with icons
-- Dedicated pricing cards between design galleries
+- Bigger logo (h-20 md:h-28)
 - 40 design mockups across Web, E-Commerce, and Social Media sections
 
 ## User Preferences

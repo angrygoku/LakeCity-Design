@@ -4,11 +4,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 bg-background border-t border-border">
+    <footer className="py-16 mx-4 mb-4 rounded-[2rem] glass-strong">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Trust Badges */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 pb-12 border-b border-border">
-          <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-secondary/30">
+          <div className="flex items-center justify-center gap-3 p-4 rounded-2xl glass">
             <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
               <MessageCircle className="w-5 h-5 text-white" />
             </div>
@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-secondary/30">
+          <div className="flex items-center justify-center gap-3 p-4 rounded-2xl glass">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
               <Shield className="w-5 h-5 text-primary-foreground" />
             </div>
@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-secondary/30">
+          <div className="flex items-center justify-center gap-3 p-4 rounded-2xl glass">
             <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
               <CreditCard className="w-5 h-5 text-white" />
             </div>

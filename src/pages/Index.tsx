@@ -224,7 +224,7 @@ const Index = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20"
+              className="mb-8 inline-flex items-center gap-2 px-6 py-3 rounded-full glass"
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-primary text-sm font-medium">Web Design Studio in Udaipur</span>
@@ -253,21 +253,21 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button size="xl" onClick={() => openModal("project")} className="gap-2">
+              <Button size="xl" onClick={() => openModal("project")} className="gap-2 rounded-full">
                 Start Your Project <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button size="xl" variant="outline" asChild>
+              <Button size="xl" variant="outline" asChild className="rounded-full">
                 <a href="#work">View Our Work</a>
               </Button>
             </motion.div>
           </div>
         </motion.section>
 
-        <div className="h-[120vh]" />
+        <div className="h-[110vh]" />
 
-        <section className="relative z-20 py-20">
+        <section className="relative z-20 py-12">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -275,38 +275,38 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="p-6 md:p-8 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 text-center"
+                  className="p-5 md:p-6 rounded-[1.5rem] glass text-center"
                 >
-                  <stat.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <div className="text-3xl md:text-4xl font-display font-bold text-foreground mb-2">{stat.value}</div>
-                  <div className="text-muted-foreground text-sm">{stat.label}</div>
+                  <stat.icon className="w-7 h-7 text-primary mx-auto mb-3" />
+                  <div className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1">{stat.value}</div>
+                  <div className="text-muted-foreground text-xs">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        <div className="h-[30vh]" />
+        <div className="h-[10vh]" />
 
-        <section id="work" className="relative z-20 py-32">
+        <section id="work" className="relative z-20 py-16">
           <div className="container mx-auto px-4 lg:px-6">
             <motion.div 
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center mb-16"
+              className="text-center mb-10"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">Our Portfolio</span>
-              <h2 className="text-5xl md:text-7xl font-display font-bold mb-6">
+              <span className="inline-block px-4 py-2 rounded-full glass text-primary text-sm font-medium mb-4">Our Portfolio</span>
+              <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">
                 <span className="text-gradient">Web</span> Design
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Stunning websites that convert visitors into customers
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
               {allDesigns.slice(0, 10).map((design, i) => (
                 <motion.div
                   key={i}
@@ -315,7 +315,7 @@ const Index = () => {
                   transition={{ duration: 0.6, delay: i * 0.05 }}
                   viewport={{ once: true }}
                   onClick={() => setSelectedImage(i)}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-border/30 hover:border-primary/50 transition-all duration-500"
+                  className="group relative aspect-square rounded-[1.25rem] overflow-hidden cursor-pointer glass hover:scale-[1.02] transition-all duration-500"
                 >
                   <img 
                     src={design.src} 
@@ -332,9 +332,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section className="relative z-20 py-24">
+        <section className="relative z-20 py-12">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-8">
               <motion.div
@@ -342,7 +342,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20"
+                className="p-8 md:p-12 rounded-[2rem] glass-strong"
               >
                 <Globe className="w-12 h-12 text-primary mb-6" />
                 <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">Business Websites</h3>
@@ -354,7 +354,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="p-8 md:p-12 rounded-3xl bg-card border border-border"
+                className="p-8 md:p-12 rounded-[2rem] glass"
               >
                 <Zap className="w-12 h-12 text-primary mb-6" />
                 <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">Landing Pages</h3>
@@ -365,9 +365,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[30vh]" />
+        <div className="h-[10vh]" />
 
-        <section className="relative z-20 py-32">
+        <section className="relative z-20 py-16">
           <div className="container mx-auto px-4 lg:px-6">
             <motion.div 
               initial={{ opacity: 0, y: 60 }}
@@ -394,7 +394,7 @@ const Index = () => {
                   transition={{ duration: 0.6, delay: i * 0.05 }}
                   viewport={{ once: true }}
                   onClick={() => setSelectedImage(i + 10)}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-border/30 hover:border-primary/50 transition-all duration-500"
+                  className="group relative aspect-square rounded-[1.25rem] overflow-hidden cursor-pointer glass hover:scale-[1.02] transition-all duration-500"
                 >
                   <img 
                     src={design.src} 
@@ -411,16 +411,16 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section className="relative z-20 py-24">
+        <section className="relative z-20 py-12">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="p-8 md:p-16 rounded-3xl bg-gradient-to-br from-card via-card to-primary/5 border border-border text-center"
+              className="p-8 md:p-16 rounded-[2rem] glass-strong text-center"
             >
               <ShoppingCart className="w-16 h-16 text-primary mx-auto mb-8" />
               <h3 className="text-4xl md:text-5xl font-display font-bold mb-6">E-Commerce Stores</h3>
@@ -430,7 +430,7 @@ const Index = () => {
               <div className="text-5xl font-display font-bold text-primary mb-8">₹40,000+</div>
               <div className="flex flex-wrap justify-center gap-4">
                 {["Razorpay", "UPI", "Shopify", "WooCommerce", "Custom Build"].map((tag) => (
-                  <span key={tag} className="px-4 py-2 rounded-full bg-secondary/50 text-secondary-foreground text-sm">
+                  <span key={tag} className="px-4 py-2 rounded-full glass text-sm">
                     {tag}
                   </span>
                 ))}
@@ -439,9 +439,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[30vh]" />
+        <div className="h-[10vh]" />
 
-        <section className="relative z-20 py-32">
+        <section className="relative z-20 py-16">
           <div className="container mx-auto px-4 lg:px-6">
             <motion.div 
               initial={{ opacity: 0, y: 60 }}
@@ -468,7 +468,7 @@ const Index = () => {
                   transition={{ duration: 0.5, delay: i * 0.03 }}
                   viewport={{ once: true }}
                   onClick={() => setSelectedImage(i + 20)}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-border/30 hover:border-primary/50 transition-all duration-500"
+                  className="group relative aspect-square rounded-[1.25rem] overflow-hidden cursor-pointer glass hover:scale-[1.02] transition-all duration-500"
                 >
                   <img 
                     src={design.src} 
@@ -485,9 +485,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section className="relative z-20 py-24">
+        <section className="relative z-20 py-12">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-3 gap-6">
               <motion.div
@@ -495,7 +495,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="p-8 rounded-3xl bg-card border border-border"
+                className="p-8 rounded-[2rem] glass"
               >
                 <Users className="w-10 h-10 text-primary mb-4" />
                 <h4 className="text-xl font-display font-bold mb-2">Social Media</h4>
@@ -507,7 +507,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="p-8 rounded-3xl bg-card border border-border"
+                className="p-8 rounded-[2rem] glass"
               >
                 <Palette className="w-10 h-10 text-primary mb-4" />
                 <h4 className="text-xl font-display font-bold mb-2">UI/UX Design</h4>
@@ -519,7 +519,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="p-8 rounded-3xl bg-card border border-border"
+                className="p-8 rounded-[2rem] glass"
               >
                 <TrendingUp className="w-10 h-10 text-primary mb-4" />
                 <h4 className="text-xl font-display font-bold mb-2">SEO Optimization</h4>
@@ -530,9 +530,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[30vh]" />
+        <div className="h-[10vh]" />
 
-        <section id="services" className="relative z-30 bg-background py-32">
+        <section id="services" className="relative z-30 bg-background py-16">
           <div className="container mx-auto px-6 lg:px-12">
             <motion.div 
               initial={{ opacity: 0, y: 60 }}
@@ -558,7 +558,7 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group p-6 md:p-10 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-500"
+                  className="group p-6 md:p-10 rounded-[2rem] glass hover:scale-[1.02] transition-all duration-500"
                 >
                   <service.icon className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
                   <h3 className="text-xl md:text-2xl font-display font-bold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
@@ -570,9 +570,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section className="relative z-30 py-24">
+        <section className="relative z-30 py-12">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
@@ -594,7 +594,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="overflow-x-auto"
             >
-              <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+              <table className="w-full glass rounded-[1.5rem] overflow-hidden">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="p-4 md:p-6 text-left font-display font-bold text-foreground">Feature</th>
@@ -629,7 +629,7 @@ const Index = () => {
 
         <div className="h-[10vh]" />
 
-        <section className="relative z-30 py-24">
+        <section className="relative z-30 py-12">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
@@ -650,7 +650,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="overflow-x-auto"
             >
-              <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+              <table className="w-full glass rounded-[1.5rem] overflow-hidden">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="p-4 md:p-6 text-left font-display font-bold text-foreground">Feature</th>
@@ -685,7 +685,7 @@ const Index = () => {
 
         <div className="h-[10vh]" />
 
-        <section className="relative z-30 py-24">
+        <section className="relative z-30 py-12">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
@@ -706,7 +706,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="overflow-x-auto"
             >
-              <table className="w-full bg-card rounded-2xl border border-border overflow-hidden">
+              <table className="w-full glass rounded-[1.5rem] overflow-hidden">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="p-4 md:p-6 text-left font-display font-bold text-foreground">Feature</th>
@@ -739,9 +739,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section className="relative z-30 py-24">
+        <section className="relative z-30 py-12">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-4 gap-6">
               {features.map((feature, i) => (
@@ -751,7 +751,7 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="p-6 rounded-2xl bg-secondary/30 border border-border/50"
+                  className="p-6 rounded-[1.5rem] glass"
                 >
                   <h4 className="text-lg font-display font-bold text-primary mb-2">{feature.title}</h4>
                   <p className="text-muted-foreground text-sm">{feature.desc}</p>
@@ -761,9 +761,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section id="about" className="relative z-30 bg-background py-32">
+        <section id="about" className="relative z-30 bg-background py-16">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -781,7 +781,7 @@ const Index = () => {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {["Fast Delivery", "Premium Quality", "Ongoing Support", "Fixed Pricing", "Full Ownership", "SEO Ready"].map((tag) => (
-                    <span key={tag} className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium text-sm">
+                    <span key={tag} className="px-4 py-2 rounded-full glass font-medium text-sm">
                       {tag}
                     </span>
                   ))}
@@ -794,19 +794,19 @@ const Index = () => {
                 transition={{ duration: 0.8 }}
                 className="grid grid-cols-2 gap-4"
               >
-                <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 text-center">
+                <div className="p-8 rounded-[2rem] glass-strong text-center">
                   <div className="text-5xl font-display font-bold text-primary mb-2">50+</div>
                   <div className="text-muted-foreground">Projects Delivered</div>
                 </div>
-                <div className="p-8 rounded-3xl bg-card border border-border text-center">
+                <div className="p-8 rounded-[2rem] glass text-center">
                   <div className="text-5xl font-display font-bold text-primary mb-2">100%</div>
                   <div className="text-muted-foreground">Client Satisfaction</div>
                 </div>
-                <div className="p-8 rounded-3xl bg-card border border-border text-center">
+                <div className="p-8 rounded-[2rem] glass text-center">
                   <div className="text-5xl font-display font-bold text-primary mb-2">₹15k</div>
                   <div className="text-muted-foreground">Starting Price</div>
                 </div>
-                <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 text-center">
+                <div className="p-8 rounded-[2rem] glass-strong text-center">
                   <div className="text-5xl font-display font-bold text-primary mb-2">24/7</div>
                   <div className="text-muted-foreground">WhatsApp Support</div>
                 </div>
@@ -815,9 +815,9 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="h-[20vh]" />
+        <div className="h-[8vh]" />
 
-        <section id="contact" className="relative z-30 bg-background py-32 overflow-hidden">
+        <section id="contact" className="relative z-30 bg-background py-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
             <motion.div 
@@ -826,7 +826,7 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">Get Started</span>
+              <span className="inline-block px-4 py-2 rounded-full glass text-primary text-sm font-medium mb-6">Get Started</span>
               <h2 className="text-5xl md:text-8xl font-display font-bold mb-8">
                 Let's <span className="text-gradient">Create</span>
               </h2>
@@ -837,12 +837,12 @@ const Index = () => {
                 <Button 
                   size="xl" 
                   onClick={() => openModal("project")}
-                  className="bg-[#25D366] hover:bg-[#128C7E] text-white gap-2"
+                  className="bg-[#25D366] hover:bg-[#128C7E] text-white gap-2 rounded-full"
                 >
                   <Phone className="w-5 h-5" />
                   WhatsApp Us
                 </Button>
-                <Button size="xl" variant="outline" onClick={() => openModal("project")} className="gap-2">
+                <Button size="xl" variant="outline" onClick={() => openModal("project")} className="gap-2 rounded-full">
                   Start a Project <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
