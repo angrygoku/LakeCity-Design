@@ -7,17 +7,27 @@ Lakecity Design is a web design and development studio website built with React,
 ## Recent Updates
 - Light cream theme with warm coral accent color
 - Glassmorphism design with frosted glass cards and boxes
-- Animated background images (geometric shapes and waves)
+- Static background images (geometric shapes and waves) - simplified from animated
 - All buttons and footer rounded with pill shapes
 - Square image grid layout (aspect-square)
 - Reduced spacing between sections for tighter layout
 - Service comparison tables for Website, E-Commerce, and Social Media packages
 - Bigger logo (h-20 md:h-28)
 - 40 design mockups across Web, E-Commerce, and Social Media sections
-- Mobile-optimized animations with 4 section types (fadeUp, fadeScale, slideLeft, slideRight)
 - Mobile-friendly pricing tables converted to card layout
 - Improved mobile typography and spacing throughout
-- Staggered reveal animations for grid items
+
+## Performance & Stability Improvements (January 2026)
+- Fixed CSS @import order (must precede @tailwind directives)
+- Added lazy loading (loading="lazy") to all 40 design mockup images
+- Replaced heavy Framer Motion animation variants with lightweight CSS transitions
+- Converted motion.section and motion.div wrappers to regular HTML elements
+- Simplified hover effects using CSS (hover:scale-[1.02], hover:-translate-y-1, transition-transform duration-300)
+- Removed complex scroll-based animations causing performance overhead
+- Fixed scroll offset calculation warning by using window-based scroll
+- Added overflow-x-hidden to prevent horizontal scroll issues
+- Removed unused animation variant declarations (sectionVariants, fadeUpVariant, etc.)
+- Kept essential Framer Motion only for hero parallax and lightbox animations
 
 ## User Preferences
 
@@ -69,21 +79,23 @@ Lakecity Design is a web design and development studio website built with React,
 
 ### Design System
 - **Typography**: Syne (display) and Inter (body) from Google Fonts
-- **Color Scheme**: Dark background with sage green primary (#158 40% 52%)
-- **Animation Library**: Framer Motion for smooth scroll animations
+- **Color Scheme**: Light cream background with coral/salmon primary (15 85% 55%)
+- **Animation Library**: CSS transitions for hover effects, minimal Framer Motion for hero only
 - **Component Variants**: Multiple button styles (hero, heroOutline, default)
 
 ### Page Structure (Single Page Experience)
-1. Navbar (fixed, scroll-aware with extra-large logo h-16/h-20)
-2. Hero (fixed parallax, "Digital Experiences" with blur/scale on scroll)
-3. Web Design Layer (10 designs with sticky scroll animation)
-4. E-Commerce Layer (10 designs with sticky scroll animation)
-5. Social Media Layer (20 designs with sticky scroll animation)
-6. Services (6 packages with pricing)
-7. About (stats, value propositions, USPs)
-8. Contact (WhatsApp-focused CTA)
-9. Footer
-10. Lightbox (Apple-style side-to-center animation)
+1. Navbar (fixed, scroll-aware with extra-large logo h-20/h-28)
+2. Hero (fixed parallax, "Digital Experiences" with scale/fade on scroll)
+3. Stats Section (4 key metrics with hover effects)
+4. Web Design Gallery (10 designs with lazy loading)
+5. E-Commerce Gallery (10 designs with lazy loading)
+6. Social Media Gallery (20 designs with lazy loading)
+7. Services (6 packages with pricing)
+8. Package Comparison Tables (Website, E-Commerce, Social Media)
+9. About (stats, value propositions, USPs)
+10. Contact (WhatsApp-focused CTA)
+11. Footer
+12. Lightbox (Apple-style side-to-center animation)
 
 ### Services Offered
 - Business Websites (₹25k onwards)

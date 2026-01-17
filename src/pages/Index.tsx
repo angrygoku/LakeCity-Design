@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ArrowRight, Phone, X, ChevronLeft, ChevronRight, Globe, ShoppingCart, Palette, TrendingUp, Users, Zap, Award, Clock, Shield, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -154,13 +154,11 @@ const features = [
 const Index = () => {
   const { openModal } = useContactModal();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const containerRef = useRef(null);
   
-  const { scrollYProgress } = useScroll({ target: containerRef });
+  const { scrollYProgress } = useScroll();
   
-  const heroScale = useTransform(scrollYProgress, [0, 0.08], [1, 0.85]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
-  const heroBlur = useTransform(scrollYProgress, [0, 0.08], [0, 15]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.04], [1, 0.9]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.03], [1, 0]);
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (selectedImage === null) return;
@@ -179,44 +177,26 @@ const Index = () => {
         <link rel="canonical" href="https://lakecitydesign.com/" />
       </Helmet>
 
-      <main ref={containerRef} className="min-h-[1400vh] bg-background relative">
+      <main className="min-h-[1400vh] bg-background relative overflow-x-hidden">
         <Navbar />
 
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          <motion.img 
+          <img 
             src={bgGeometric} 
             alt="" 
             className="absolute top-0 right-0 w-[60%] h-auto opacity-30"
-            animate={{ 
-              y: [0, -20, 0],
-              rotate: [0, 2, 0],
-            }}
-            transition={{ 
-              duration: 8, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
           />
-          <motion.img 
+          <img 
             src={bgWaves} 
             alt="" 
             className="absolute bottom-0 left-0 w-[70%] h-auto opacity-25"
-            animate={{ 
-              x: [0, 20, 0],
-              scale: [1, 1.02, 1],
-            }}
-            transition={{ 
-              duration: 10, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
           />
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[150px]" />
           <div className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
         </div>
 
         <motion.section 
-          style={{ scale: heroScale, opacity: heroOpacity, filter: `blur(${heroBlur}px)` }}
+          style={{ scale: heroScale, opacity: heroOpacity }}
           className="fixed inset-0 flex items-center justify-center z-10"
         >
           <div className="container mx-auto px-6 lg:px-12 text-center">
