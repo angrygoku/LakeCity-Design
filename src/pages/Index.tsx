@@ -177,6 +177,7 @@ const Index = () => {
         <div className="h-[100vh]" />
 
         <motion.section 
+          id="work"
           style={{ y: layer1Y, opacity: layer1Opacity, scale: layer1Scale }}
           className="sticky top-0 min-h-screen flex items-center justify-center z-20 py-20"
         >
@@ -290,7 +291,7 @@ const Index = () => {
 
         <div className="h-[100vh]" />
 
-        <section className="relative z-50 bg-background py-32">
+        <section id="services" className="relative z-50 bg-background py-32">
           <div className="container mx-auto px-6 lg:px-12">
             <motion.div 
               initial={{ opacity: 0, y: 60 }}
@@ -323,7 +324,58 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="relative z-50 bg-background py-32 overflow-hidden">
+        <section id="about" className="relative z-50 bg-background py-32">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+                  We craft <span className="text-gradient">digital excellence</span>
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8">
+                  Based in Udaipur, we help businesses across India establish stunning digital presence that drives results.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  {["Fast Delivery", "Premium Quality", "Ongoing Support", "Fixed Pricing"].map((tag) => (
+                    <span key={tag} className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium text-sm">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="grid grid-cols-2 gap-4"
+              >
+                <div className="p-6 rounded-2xl bg-card border border-border text-center">
+                  <div className="text-4xl font-display font-bold text-primary mb-2">40+</div>
+                  <div className="text-muted-foreground text-sm">Design Styles</div>
+                </div>
+                <div className="p-6 rounded-2xl bg-card border border-border text-center">
+                  <div className="text-4xl font-display font-bold text-primary mb-2">100%</div>
+                  <div className="text-muted-foreground text-sm">Client Satisfaction</div>
+                </div>
+                <div className="p-6 rounded-2xl bg-card border border-border text-center">
+                  <div className="text-4xl font-display font-bold text-primary mb-2">₹15k</div>
+                  <div className="text-muted-foreground text-sm">Starting Price</div>
+                </div>
+                <div className="p-6 rounded-2xl bg-card border border-border text-center">
+                  <div className="text-4xl font-display font-bold text-primary mb-2">24/7</div>
+                  <div className="text-muted-foreground text-sm">WhatsApp Support</div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="relative z-50 bg-background py-32 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
           <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">
             <motion.div 

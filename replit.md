@@ -5,12 +5,13 @@
 Lakecity Design is a web design and development studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a web design agency based in Udaipur, Rajasthan, India. It specializes in business websites, e-commerce stores, landing pages, and UI/UX design. The website features a dark sophisticated theme with coral accents, fixed-price service packages, WhatsApp-based lead capture, and comprehensive SEO optimization for Google Ads.
 
 ## Recent Updates
-- Redesigned homepage as a single visual-first page with Framer Motion animations
-- Added parallax hero, smooth scroll animations, and infinite scrolling carousel
-- Minimal text, maximum visual impact design philosophy
-- Increased logo size to h-12/h-16 for better visibility
-- Created Inspiration page with 40 AI-generated design mockups
-- Sage green theme for a relaxed and confident feel
+- Complete Apple-style redesign with layered scroll animations
+- Added 20 social media management images (40 total designs)
+- Removed Inspiration page - all images now on single main page
+- Three layered sections: Web Design, E-Commerce, Social Media
+- Apple-style side-to-center lightbox animations
+- Increased logo size to h-16/h-20 for maximum visibility
+- Added About section with stats and value propositions
 
 ## User Preferences
 
@@ -67,23 +68,24 @@ Lakecity Design is a web design and development studio website built with React,
 - **Component Variants**: Multiple button styles (hero, heroOutline, default)
 
 ### Page Structure (Single Page Experience)
-1. Navbar (fixed, scroll-aware with large logo)
-2. Hero (parallax animated, minimal text "Websites that captivate")
-3. Design Grid (4 visual mockups with hover effects)
-4. Marquee (infinite scrolling carousel of 6 design showcases)
-5. Services (6 packages in grid format with pricing)
-6. Feature Section (visual + minimal copy)
-7. Inspiration CTA (link to 40+ design gallery)
+1. Navbar (fixed, scroll-aware with extra-large logo h-16/h-20)
+2. Hero (fixed parallax, "Digital Experiences" with blur/scale on scroll)
+3. Web Design Layer (10 designs with sticky scroll animation)
+4. E-Commerce Layer (10 designs with sticky scroll animation)
+5. Social Media Layer (20 designs with sticky scroll animation)
+6. Services (6 packages with pricing)
+7. About (stats, value propositions, USPs)
 8. Contact (WhatsApp-focused CTA)
 9. Footer
+10. Lightbox (Apple-style side-to-center animation)
 
 ### Services Offered
 - Business Websites (₹25k onwards)
 - E-Commerce Stores (₹40k onwards)
 - Landing Pages (₹15k onwards)
 - UI/UX Design (₹20k onwards)
+- Social Media Management (₹15k onwards)
 - SEO Optimization (₹10k onwards)
-- Website Redesign (₹30k onwards)
 
 ### Contact Information
 - Phone 1: +91-9675624255
