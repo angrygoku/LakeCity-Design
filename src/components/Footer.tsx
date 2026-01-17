@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, Shield, Clock, CreditCard } from "lucide-react";
+import { Instagram, Shield, CreditCard } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -6,18 +6,7 @@ const Footer = () => {
   return (
     <footer className="py-16 mx-4 mb-4 rounded-[2rem] glass-strong">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Trust Badges */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 pb-12 border-b border-border">
-          <div className="flex items-center justify-center gap-3 p-4 rounded-2xl glass">
-            <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
-              <MessageCircle className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <p className="font-semibold text-foreground">WhatsApp Support</p>
-              <p className="text-sm text-muted-foreground">Reply in &lt;1 hour</p>
-            </div>
-          </div>
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 pb-12 border-b border-border">
           <div className="flex items-center justify-center gap-3 p-4 rounded-2xl glass">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
               <Shield className="w-5 h-5 text-primary-foreground" />
@@ -40,10 +29,9 @@ const Footer = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {/* Logo & Tagline */}
           <div className="text-center md:text-left">
             <a
-              href="#"
+              href="/"
               className="inline-block mb-4 hover:opacity-80 transition-opacity"
             >
               <img 
@@ -57,30 +45,23 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Call Us Directly */}
           <div className="text-center">
             <h4 className="font-display font-semibold text-primary mb-4 flex items-center justify-center gap-2">
-              <Phone className="w-4 h-4" />
-              CALL US DIRECTLY
+              <Instagram className="w-4 h-4" />
+              CONNECT WITH US
             </h4>
-            <p className="text-sm text-muted-foreground mb-1">We appreciate that.</p>
-            <div className="flex flex-col gap-2 mt-4">
-              <a
-                href="tel:+919675624255"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                +91-9675624255
-              </a>
-              <a
-                href="tel:+918875584397"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                +91-8875584397
-              </a>
-            </div>
+            <p className="text-sm text-muted-foreground mb-4">Follow us on Instagram</p>
+            <a
+              href="https://instagram.com/lakecitydesign"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass text-foreground hover:text-primary transition-colors font-medium"
+            >
+              <Instagram className="w-5 h-5" />
+              @lakecitydesign
+            </a>
           </div>
 
-          {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
               © {currentYear} Lakecity Design.

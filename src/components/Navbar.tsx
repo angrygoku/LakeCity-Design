@@ -20,13 +20,13 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#work", label: "Work" },
-    { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" },
+    { href: "/packages", label: "Services", isRoute: true },
+    { href: "#about", label: "About", isRoute: false },
+    { href: "#contact", label: "Contact", isRoute: false },
   ];
 
-  const handleSectionClick = (e: React.MouseEvent, href: string) => {
+  const handleNavClick = (e: React.MouseEvent, href: string, isRoute: boolean) => {
+    if (isRoute) return;
     if (!isHomePage && href.startsWith("#")) {
       e.preventDefault();
       window.location.href = "/" + href;
@@ -56,14 +56,24 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={isHomePage ? link.href : "/" + link.href}
-                onClick={(e) => handleSectionClick(e, link.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={isHomePage ? link.href : "/" + link.href}
+                  onClick={(e) => handleNavClick(e, link.href, link.isRoute)}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </div>
 
@@ -85,17 +95,28 @@ const Navbar = () => {
           <div className="md:hidden py-6 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={isHomePage ? link.href : "/" + link.href}
-                  onClick={(e) => {
-                    handleSectionClick(e, link.href);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={isHomePage ? link.href : "/" + link.href}
+                    onClick={(e) => {
+                      handleNavClick(e, link.href, link.isRoute);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               <Button 
                 variant="default" 

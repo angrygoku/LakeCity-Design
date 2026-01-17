@@ -2,20 +2,14 @@
 
 ## Overview
 
-Lakecity Design is a web design and development studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a web design agency based in Udaipur, Rajasthan, India. It specializes in business websites, e-commerce stores, landing pages, and UI/UX design. The website features a dark sophisticated theme with coral accents, fixed-price service packages, WhatsApp-based lead capture, and comprehensive SEO optimization for Google Ads.
+Lakecity Design is a web design and development studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a web design agency based in Udaipur, Rajasthan, India. It specializes in business websites, e-commerce stores, landing pages, and UI/UX design. The website features a light cream glassmorphism theme with coral accents, fixed-price service packages, Instagram-based communication, and comprehensive SEO optimization for Google Ads.
 
-## Recent Updates
-- Light cream theme with warm coral accent color
-- Glassmorphism design with frosted glass cards and boxes
-- Static background images (geometric shapes and waves) - simplified from animated
-- All buttons and footer rounded with pill shapes
-- Square image grid layout (aspect-square)
-- Reduced spacing between sections for tighter layout
-- Service comparison tables for Website, E-Commerce, and Social Media packages
-- Bigger logo (h-20 md:h-28)
-- 40 design mockups across Web, E-Commerce, and Social Media sections
-- Mobile-friendly pricing tables converted to card layout
-- Improved mobile typography and spacing throughout
+## Recent Updates (January 2026)
+- **Multi-page structure**: Separated into Home (branding) and Packages (pricing/portfolio) pages
+- **Instagram-only contact**: Removed WhatsApp and phone numbers, Instagram is the sole communication channel
+- **Simplified homepage**: Focus on branding, stats, about section, and CTAs to explore services
+- **Dedicated Packages page**: All pricing, comparison tables, and portfolio galleries in one place
+- **Updated navigation**: Services link now goes to /packages route
 
 ## Performance & Stability Improvements (January 2026)
 - Fixed CSS @import order (must precede @tailwind directives)
@@ -26,13 +20,13 @@ Lakecity Design is a web design and development studio website built with React,
 - Removed complex scroll-based animations causing performance overhead
 - Fixed scroll offset calculation warning by using window-based scroll
 - Added overflow-x-hidden to prevent horizontal scroll issues
-- Removed unused animation variant declarations (sectionVariants, fadeUpVariant, etc.)
+- Removed unused animation variant declarations
 - Kept essential Framer Motion only for hero parallax and lightbox animations
 
 ## User Preferences
 
 - Preferred communication style: Simple, everyday language
-- No names on contact information (just phone numbers)
+- No names or phone numbers displayed (Instagram only)
 - Focus on web design and development services
 - Fixed-price "onwards" pricing strategy
 
@@ -74,7 +68,7 @@ Lakecity Design is a web design and development studio website built with React,
 - **Build Tool**: Vite with SWC for fast compilation
 - **Styling**: Tailwind CSS with custom design tokens
 - **Component Library**: shadcn/ui components on Radix UI
-- **Routing**: React Router DOM
+- **Routing**: React Router DOM (multi-page)
 - **State Management**: React hooks for local state
 
 ### Design System
@@ -83,19 +77,30 @@ Lakecity Design is a web design and development studio website built with React,
 - **Animation Library**: CSS transitions for hover effects, minimal Framer Motion for hero only
 - **Component Variants**: Multiple button styles (hero, heroOutline, default)
 
-### Page Structure (Single Page Experience)
+### Page Structure
+
+#### Homepage (/)
 1. Navbar (fixed, scroll-aware with extra-large logo h-20/h-28)
 2. Hero (fixed parallax, "Digital Experiences" with scale/fade on scroll)
-3. Stats Section (4 key metrics with hover effects)
-4. Web Design Gallery (10 designs with lazy loading)
-5. E-Commerce Gallery (10 designs with lazy loading)
-6. Social Media Gallery (20 designs with lazy loading)
-7. Services (6 packages with pricing)
-8. Package Comparison Tables (Website, E-Commerce, Social Media)
-9. About (stats, value propositions, USPs)
-10. Contact (WhatsApp-focused CTA)
+3. Stats Section (4 key metrics)
+4. Services Overview (6 cards without pricing)
+5. Features (4 value propositions)
+6. About (stats, tags, company info)
+7. Contact CTA (Instagram-based)
+8. Footer
+
+#### Packages Page (/packages)
+1. Navbar
+2. All Services with Pricing (6 packages)
+3. Web Design Gallery (15 designs with lightbox)
+4. Website Comparison Table
+5. E-Commerce Gallery (5 designs with lightbox)
+6. E-Commerce Comparison Table
+7. Social Media Gallery (20 designs with lightbox)
+8. Social Media Comparison Table
+9. Features
+10. CTA Section
 11. Footer
-12. Lightbox (Apple-style side-to-center animation)
 
 ### Services Offered
 - Business Websites (₹25k onwards)
@@ -106,9 +111,8 @@ Lakecity Design is a web design and development studio website built with React,
 - SEO Optimization (₹10k onwards)
 
 ### Contact Information
-- Phone 1: +91-9675624255
-- Phone 2: +91-8875584397
-- WhatsApp integration for all contact forms
+- Instagram: @lakecitydesign
+- Location: Udaipur, Rajasthan, India
 
 ### Path Aliases
 `@/*` points to `./src/*`
@@ -126,7 +130,7 @@ Lakecity Design is a web design and development studio website built with React,
 - date-fns, embla-carousel-react, sonner
 
 ### Third-Party Services
-- WhatsApp Business (wa.me links)
+- Instagram (@lakecitydesign)
 - Razorpay/UPI (payment badges)
 - Google Analytics 4 (placeholder ready)
 - Google Ads (placeholder ready)

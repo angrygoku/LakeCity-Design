@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Send, Calendar, MessageCircle } from "lucide-react";
+import { X, Send, Calendar, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type ModalType = "project" | "call" | null;
@@ -15,28 +15,11 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
   const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
-  const [selectedNumber, setSelectedNumber] = useState<"primary" | "secondary">("primary");
-
-  const phoneNumbers = {
-    primary: "919675624255",
-    secondary: "918875584397",
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    let whatsappMessage = "";
-    
-    if (type === "call") {
-      whatsappMessage = `Hi! I'd like to book a call with Lakecity Design.\n\nName: ${name}\nProject Type: ${projectType}\nPreferred Time: ${preferredTime}\n${message ? `\nAdditional Info: ${message}` : ""}`;
-    } else {
-      whatsappMessage = `Hi! I'm interested in working with Lakecity Design.\n\nName: ${name}\nProject Type: ${projectType}\n${message ? `\nDetails: ${message}` : ""}`;
-    }
-
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/${phoneNumbers[selectedNumber]}?text=${encodedMessage}`;
-    
-    window.open(whatsappUrl, "_blank");
+    window.open("https://instagram.com/lakecitydesign", "_blank");
     onClose();
     
     setName("");
@@ -49,15 +32,12 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
       
-      {/* Modal */}
       <div className="relative w-full max-w-md bg-background border border-border rounded-2xl shadow-2xl overflow-hidden animate-fade-up">
-        {/* Header */}
         <div className="p-6 border-b border-border bg-gradient-card">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -88,9 +68,7 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
           </div>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {/* Name */}
           <div>
             <label className="block text-sm font-medium mb-2">Your Name</label>
             <input
@@ -103,7 +81,6 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
             />
           </div>
 
-          {/* Project Type */}
           <div>
             <label className="block text-sm font-medium mb-2">What do you need?</label>
             <select
@@ -119,11 +96,11 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
               <option value="UI/UX Design">UI/UX Design</option>
               <option value="Website Redesign">Website Redesign</option>
               <option value="SEO Optimization">SEO Optimization</option>
+              <option value="Social Media">Social Media Management</option>
               <option value="Other">Something else</option>
             </select>
           </div>
 
-          {/* Preferred Time - Only for call booking */}
           {type === "call" && (
             <div>
               <label className="block text-sm font-medium mb-2">Preferred Time for Call</label>
@@ -138,7 +115,6 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
             </div>
           )}
 
-          {/* Message */}
           <div>
             <label className="block text-sm font-medium mb-2">
               {type === "call" ? "Anything else we should know?" : "Tell us more (optional)"}
@@ -152,43 +128,23 @@ const ContactModal = ({ isOpen, onClose, type }: ContactModalProps) => {
             />
           </div>
 
-          {/* Contact Selection */}
-          <div>
-            <label className="block text-sm font-medium mb-2">Choose a number to reach us</label>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={() => setSelectedNumber("primary")}
-                className={`p-3 rounded-xl border text-sm font-medium transition-all ${
-                  selectedNumber === "primary"
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border hover:border-primary/50"
-                }`}
-              >
-                +91-9675624255
-              </button>
-              <button
-                type="button"
-                onClick={() => setSelectedNumber("secondary")}
-                className={`p-3 rounded-xl border text-sm font-medium transition-all ${
-                  selectedNumber === "secondary"
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border hover:border-primary/50"
-                }`}
-              >
-                +91-8875584397
-              </button>
+          <div className="p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+            <div className="flex items-center gap-3 mb-2">
+              <Instagram className="w-5 h-5 text-pink-500" />
+              <span className="font-medium">Connect with us on Instagram</span>
             </div>
+            <p className="text-sm text-muted-foreground">
+              DM us @lakecitydesign with your project details
+            </p>
           </div>
 
-          {/* Submit */}
-          <Button type="submit" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white" size="lg">
-            <Send className="w-4 h-4 mr-2" />
-            Send via WhatsApp
+          <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white" size="lg">
+            <Instagram className="w-4 h-4 mr-2" />
+            Open Instagram
           </Button>
 
           <p className="text-xs text-center text-muted-foreground">
-            This will open WhatsApp with your message ready to send
+            This will open Instagram where you can message us directly
           </p>
         </form>
       </div>
