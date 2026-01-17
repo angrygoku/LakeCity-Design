@@ -5,11 +5,12 @@
 Lakecity Design is a web design and development studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a web design agency based in Udaipur, Rajasthan, India. It specializes in business websites, e-commerce stores, landing pages, and UI/UX design. The website features a dark sophisticated theme with coral accents, fixed-price service packages, WhatsApp-based lead capture, and comprehensive SEO optimization for Google Ads.
 
 ## Recent Updates
-- Created Inspiration page with 40 AI-generated design mockups (10 each: business websites, e-commerce, UI/UX, landing pages)
-- Redesigned theme from coral to sage green for a relaxed and confident feel
-- Added filterable gallery with lightbox view
-- Fixed navigation to work across pages
-- Fixed logo sizing in navbar (h-8 on mobile, h-10 on desktop)
+- Redesigned homepage as a single visual-first page with Framer Motion animations
+- Added parallax hero, smooth scroll animations, and infinite scrolling carousel
+- Minimal text, maximum visual impact design philosophy
+- Increased logo size to h-12/h-16 for better visibility
+- Created Inspiration page with 40 AI-generated design mockups
+- Sage green theme for a relaxed and confident feel
 
 ## User Preferences
 
@@ -61,19 +62,20 @@ Lakecity Design is a web design and development studio website built with React,
 
 ### Design System
 - **Typography**: Syne (display) and Inter (body) from Google Fonts
-- **Color Scheme**: Dark background with electric coral primary (#E85A3C)
+- **Color Scheme**: Dark background with sage green primary (#158 40% 52%)
+- **Animation Library**: Framer Motion for smooth scroll animations
 - **Component Variants**: Multiple button styles (hero, heroOutline, default)
 
-### Page Structure
-1. Navbar (fixed, scroll-aware)
-2. Hero (conversion-focused headline with dual CTAs)
-3. Testimonials (auto-rotating)
-4. HowItWorks (3-step process)
-5. Services (6 web design packages with pricing)
-6. Work (capabilities showcase)
-7. About (company values)
-8. Contact (WhatsApp-integrated form)
-9. Footer (trust badges, contact info)
+### Page Structure (Single Page Experience)
+1. Navbar (fixed, scroll-aware with large logo)
+2. Hero (parallax animated, minimal text "Websites that captivate")
+3. Design Grid (4 visual mockups with hover effects)
+4. Marquee (infinite scrolling carousel of 6 design showcases)
+5. Services (6 packages in grid format with pricing)
+6. Feature Section (visual + minimal copy)
+7. Inspiration CTA (link to 40+ design gallery)
+8. Contact (WhatsApp-focused CTA)
+9. Footer
 
 ### Services Offered
 - Business Websites (₹25k onwards)
