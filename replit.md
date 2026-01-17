@@ -5,13 +5,14 @@
 Lakecity Design is a web design and development studio website built with React, TypeScript, and Vite. The site serves as a marketing and lead generation platform for a web design agency based in Udaipur, Rajasthan, India. It specializes in business websites, e-commerce stores, landing pages, and UI/UX design. The website features a dark sophisticated theme with coral accents, fixed-price service packages, WhatsApp-based lead capture, and comprehensive SEO optimization for Google Ads.
 
 ## Recent Updates
-- Complete Apple-style redesign with layered scroll animations
-- Added 20 social media management images (40 total designs)
-- Removed Inspiration page - all images now on single main page
-- Three layered sections: Web Design, E-Commerce, Social Media
-- Apple-style side-to-center lightbox animations
-- Increased logo size to h-16/h-20 for maximum visibility
-- Added About section with stats and value propositions
+- Ultra-dark theme with electric teal accent (pure black background)
+- Extended scroll experience (1400vh) with no overlapping sections
+- Maximalist design with info boxes, stat cards, and feature sections
+- Stats section after hero with icons
+- Dedicated pricing cards between design galleries
+- Feature highlights and value propositions throughout
+- 40 design mockups across Web, E-Commerce, and Social Media sections
+- Large typography and premium visual presentation
 
 ## User Preferences
 
