@@ -22,7 +22,6 @@ const Navbar = () => {
   const navLinks = [
     { href: "#services", label: "Services" },
     { href: "#work", label: "Work" },
-    { href: "/inspiration", label: "Inspiration", isRoute: true },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ];
@@ -43,7 +42,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           <Link
             to="/"
             className="hover:opacity-80 transition-opacity"
@@ -51,30 +50,20 @@ const Navbar = () => {
             <img 
               src="/logo.png" 
               alt="Lakecity Design" 
-              className="h-12 md:h-16 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
 
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              link.isRoute ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={isHomePage ? link.href : "/" + link.href}
-                  onClick={(e) => handleSectionClick(e, link.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </a>
-              )
+              <a
+                key={link.href}
+                href={isHomePage ? link.href : "/" + link.href}
+                onClick={(e) => handleSectionClick(e, link.href)}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
             ))}
           </div>
 
@@ -96,28 +85,17 @@ const Navbar = () => {
           <div className="md:hidden py-6 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                link.isRoute ? (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={isHomePage ? link.href : "/" + link.href}
-                    onClick={(e) => {
-                      handleSectionClick(e, link.href);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                )
+                <a
+                  key={link.href}
+                  href={isHomePage ? link.href : "/" + link.href}
+                  onClick={(e) => {
+                    handleSectionClick(e, link.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
               ))}
               <Button 
                 variant="default" 
