@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+# Lakecity Design - Premium Digital Agency Website
 
-## Project info
+A Next.js 14 website for Lakecity Design, a digital agency based in Udaipur serving clients across India.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Features
 
-## How can I edit this code?
+- **Next.js 14** with App Router and TypeScript
+- **Premium Design System** with deep navy and amber color palette
+- **Performance Optimized** - Built for 95+ Lighthouse scores
+- **Fully Responsive** - Mobile-first design
+- **Accessibility** - WCAG 2.1 AA compliant
+- **SEO Optimized** - Metadata, sitemap, and structured data ready
+- **Modern UI** - shadcn/ui components with Tailwind CSS
+- **Animations** - Framer Motion for smooth interactions
 
-There are several ways of editing your application.
+## 📁 Project Structure
 
-**Use Lovable**
+```
+app/
+├── (routes)/
+│   ├── page.tsx              # Homepage
+│   ├── work/
+│   │   ├── page.tsx          # Portfolio listing
+│   │   └── [slug]/page.tsx   # Individual case studies
+│   ├── services/
+│   │   ├── page.tsx          # Services listing
+│   │   └── [slug]/page.tsx   # Individual service pages
+│   ├── pricing/page.tsx      # Pricing page
+│   └── about/page.tsx        # About page
+├── components/
+│   ├── layout/               # Navbar, Footer
+│   ├── sections/            # Homepage sections
+│   ├── ui/                  # shadcn/ui components
+│   └── forms/               # Form components
+├── lib/
+│   ├── utils.ts             # Utility functions
+│   └── constants.ts         # Site constants
+└── content/                 # MDX content (future)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🛠️ Setup
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-**Use GitHub Codespaces**
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. **Build for Production**
+   ```bash
+   npm run build
+   npm start
+   ```
 
-## What technologies are used for this project?
+## 🎨 Design System
 
-This project is built with:
+### Colors
+- **Primary**: Deep Navy (#0F172A)
+- **Accent**: Rich Amber (#D97706)
+- **Background**: Off-white (#FAFAFA)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Typography
+- **Display Font**: Plus Jakarta Sans
+- **Body Font**: Inter (Variable)
 
-## How can I deploy this project?
+## 📝 Content Management
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Case studies and content are currently hardcoded in `lib/constants.ts`. For production, consider:
+- MDX files in `content/case-studies/`
+- Headless CMS (Contentful, Sanity)
+- Database integration
 
-## Can I connect a custom domain to my Lovable project?
+## 🔧 Configuration
 
-Yes, you can!
+### Environment Variables
+Create a `.env.local` file:
+```env
+NEXT_PUBLIC_SITE_URL=https://lakecitydesign.com
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Form Submissions
+Update `components/forms/contact-form.tsx` to connect to your API endpoint or form service (Formspree, Resend, etc.)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📈 Performance
+
+- Image optimization with Next.js Image component
+- Font optimization with `next/font`
+- Static generation where possible
+- Code splitting and lazy loading
+
+## 🚢 Deployment
+
+Deploy to Vercel:
+```bash
+vercel
+```
+
+Or configure for other platforms (Netlify, AWS, etc.)
+
+## 📄 License
+
+All rights reserved - Lakecity Design
