@@ -57,11 +57,27 @@ function sanitizeInput(input: string): string {
     .slice(0, 2000) // Max length protection
 }
 
+const MAX_BODY_BYTES = 10 * 1024 // 10KB
+
+// Only allow POST; reject other methods to avoid info disclosure
+export async function GET() {
+  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 })
+}
+
 export async function POST(request: Request) {
   try {
+    // Require JSON content type to avoid injection
+    const contentType = request.headers.get('content-type') || ''
+    if (!contentType.includes('application/json')) {
+      return NextResponse.json(
+        { error: 'Invalid request. Use application/json.' },
+        { status: 415 }
+      )
+    }
+
     // Get client IP for rate limiting
     const forwarded = request.headers.get('x-forwarded-for')
-    const ip = forwarded ? forwarded.split(',')[0] : 'unknown'
+    const ip = (forwarded ? forwarded.split(',')[0].trim() : 'unknown') || 'unknown'
 
     // Rate limiting check
     if (!checkRateLimit(ip)) {
@@ -71,27 +87,56 @@ export async function POST(request: Request) {
       )
     }
 
-    // Parse and validate request body
-    const body = await request.json()
+    // Enforce body size limit
+    const contentLength = request.headers.get('content-length')
+    if (contentLength && parseInt(contentLength, 10) > MAX_BODY_BYTES) {
+      return NextResponse.json(
+        { error: 'Request too large.' },
+        { status: 413 }
+      )
+    }
 
+    // Parse and validate request body
+    const rawBody = await request.text()
+    if (rawBody.length > MAX_BODY_BYTES) {
+      return NextResponse.json(
+        { error: 'Request too large.' },
+        { status: 413 }
+      )
+    }
+    let body: unknown
+    try {
+      body = JSON.parse(rawBody)
+    } catch {
+      return NextResponse.json(
+        { error: 'Invalid form data.' },
+        { status: 400 }
+      )
+    }
+    if (typeof body !== 'object' || body === null) {
+      return NextResponse.json(
+        { error: 'Invalid form data.' },
+        { status: 400 }
+      )
+    }
+
+    const b = body as Record<string, unknown>
     // Sanitize all string inputs
     const sanitizedBody = {
-      ...body,
-      name: sanitizeInput(body.name || ''),
-      email: sanitizeInput(body.email || ''),
-      company: sanitizeInput(body.company || ''),
-      message: body.message ? sanitizeInput(body.message) : undefined,
+      ...b,
+      name: sanitizeInput(typeof b.name === 'string' ? b.name : ''),
+      email: sanitizeInput(typeof b.email === 'string' ? b.email : ''),
+      company: sanitizeInput(typeof b.company === 'string' ? b.company : ''),
+      message: typeof b.message === 'string' ? sanitizeInput(b.message) : undefined,
     }
 
     // Validate with Zod
     const validatedData = contactSchema.parse(sanitizedBody)
 
-    // Log submission (in production, send to email service or database)
-    console.log('Contact form submission:', {
-      ...validatedData,
-      ip,
-      timestamp: new Date().toISOString(),
-    })
+    // Log submission server-side only (in production, send to email service or database)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Contact form submission:', { ...validatedData, ip, timestamp: new Date().toISOString() })
+    }
 
     // Simulate processing delay
     await new Promise((resolve) => setTimeout(resolve, 500))
@@ -124,24 +169,17 @@ export async function POST(request: Request) {
       { status: 200 }
     )
   } catch (error) {
-    // Handle validation errors
+    // Handle validation errors - do not expose field details to client (security)
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        {
-          error: 'Invalid form data',
-          details: error.errors.map((e) => ({
-            field: e.path.join('.'),
-            message: e.message,
-          })),
-        },
+        { error: 'Invalid form data. Please check your entries and try again.' },
         { status: 400 }
       )
     }
 
-    // Log error (use proper error tracking in production)
-    console.error('Contact form error:', error)
+    // Log error server-side only (never expose to client)
+    console.error('Contact form error:', error instanceof Error ? error.message : 'Unknown error')
 
-    // Don't expose internal errors to client
     return NextResponse.json(
       { error: 'Something went wrong. Please try again later.' },
       { status: 500 }
