@@ -5,6 +5,7 @@ export const siteConfig = {
   ogImage: '/og-image.jpg',
   links: {
     phone: '+91-96756-24255',
+    email: 'contact@lakecitydesign.com',
     instagram: 'https://www.instagram.com/lakecity.designs/',
   },
   address: {

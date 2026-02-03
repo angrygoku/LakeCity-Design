@@ -13,6 +13,7 @@ export function generateOrganizationSchema() {
       addressRegion: 'Rajasthan',
       addressCountry: 'IN',
     },
+    email: 'contact@lakecitydesign.com',
     sameAs: [
       'https://www.instagram.com/lakecity.designs/',
     ],
@@ -70,6 +71,7 @@ export function generateLocalBusinessSchema() {
     image: 'https://lakecitydesign.com/logo.png',
     '@id': 'https://lakecitydesign.com',
     url: 'https://lakecitydesign.com',
+    email: 'contact@lakecitydesign.com',
     telephone: '+91-9675624255',
     address: {
       '@type': 'PostalAddress',

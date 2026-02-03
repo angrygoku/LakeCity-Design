@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, Phone } from 'lucide-react'
+import { Instagram, Phone, Mail } from 'lucide-react'
 import { siteConfig } from '@/lib/constants'
 
 export function Footer() {
@@ -15,9 +15,9 @@ export function Footer() {
               <Image
                 src="/logo.png"
                 alt="Lakecity Design"
-                width={140}
-                height={50}
-                className="h-12 w-auto brightness-0 invert"
+                width={180}
+                height={56}
+                className="h-14 md:h-16 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
@@ -75,6 +75,15 @@ export function Footer() {
           <div>
             <h4 className="font-display font-semibold mb-4">Connect</h4>
             <ul className="space-y-3">
+              <li>
+                <a
+                  href={`mailto:${siteConfig.links.email}`}
+                  className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+                >
+                  <Mail className="w-4 h-4" />
+                  {siteConfig.links.email}
+                </a>
+              </li>
               <li>
                 <a
                   href={`tel:${siteConfig.links.phone.replace(/\s/g, '')}`}

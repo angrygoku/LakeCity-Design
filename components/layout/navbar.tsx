@@ -44,13 +44,13 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20 md:h-24">
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link href="/" className="hover:opacity-80 transition-opacity flex-shrink-0">
             <Image
               src="/logo.png"
               alt="Lakecity Design"
-              width={120}
-              height={40}
-              className="h-12 md:h-16 w-auto"
+              width={180}
+              height={56}
+              className="h-14 sm:h-16 md:h-20 w-auto"
               priority
             />
           </Link>

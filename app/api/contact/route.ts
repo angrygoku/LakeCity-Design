@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
+import { Resend } from 'resend'
+
+const CONTACT_EMAIL = 'contact@lakecitydesign.com'
+const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Lakecity Design <onboarding@resend.dev>'
 
 // Rate limiting (simple in-memory store - use Redis in production)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
@@ -55,6 +59,17 @@ function sanitizeInput(input: string): string {
     .replace(/expression\(/gi, '')
     .trim()
     .slice(0, 2000) // Max length protection
+}
+
+// Escape for safe use in HTML email body (never expose raw user input)
+function escapeHtml(text: string): string {
+  if (typeof text !== 'string') return ''
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
 }
 
 const MAX_BODY_BYTES = 10 * 1024 // 10KB
@@ -133,36 +148,38 @@ export async function POST(request: Request) {
     // Validate with Zod
     const validatedData = contactSchema.parse(sanitizedBody)
 
-    // Log submission server-side only (in production, send to email service or database)
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Contact form submission:', { ...validatedData, ip, timestamp: new Date().toISOString() })
+    // Send email to contact@lakecitydesign.com (only if API key is set; never expose key or failure to client)
+    const apiKey = process.env.RESEND_API_KEY
+    if (apiKey && typeof apiKey === 'string' && apiKey.length > 0) {
+      try {
+        const resend = new Resend(apiKey)
+        const budgetLabel = validatedData.budget.replace(/-/g, '–')
+        const projectLabel = validatedData.projectType.replace(/-/g, ' ')
+        const htmlMessage = validatedData.message
+          ? `<p><strong>Message:</strong></p><p>${escapeHtml(validatedData.message)}</p>`
+          : ''
+        await resend.emails.send({
+          from: RESEND_FROM_EMAIL,
+          to: CONTACT_EMAIL,
+          replyTo: validatedData.email,
+          subject: `[Lakecity] New enquiry: ${projectLabel} – ${validatedData.company}`,
+          html: `
+            <h2>New contact form submission</h2>
+            <p><strong>Name:</strong> ${escapeHtml(validatedData.name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(validatedData.email)}</p>
+            <p><strong>Company:</strong> ${escapeHtml(validatedData.company)}</p>
+            <p><strong>Budget:</strong> ${escapeHtml(budgetLabel)}</p>
+            <p><strong>Project type:</strong> ${escapeHtml(projectLabel)}</p>
+            ${htmlMessage}
+            <p><em>Submitted from IP: ${escapeHtml(ip)} at ${new Date().toISOString()}</em></p>
+          `,
+        })
+      } catch (emailError) {
+        // Log server-side only; never expose to client
+        console.error('Contact email send failed:', emailError instanceof Error ? emailError.message : 'Unknown error')
+        // Still return success so we don't reveal that email is configured
+      }
     }
-
-    // Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 500))
-
-    // In production, integrate with:
-    // - Resend/SendGrid for emails
-    // - Database for storing submissions
-    // - Slack/Discord for team notifications
-    // Example with Resend:
-    /*
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    await resend.emails.send({
-      from: 'contact@lakecitydesign.com',
-      to: 'hello@lakecitydesign.com',
-      subject: `New Contact Form: ${validatedData.projectType}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${validatedData.name}</p>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
-        <p><strong>Company:</strong> ${validatedData.company}</p>
-        <p><strong>Budget:</strong> ${validatedData.budget}</p>
-        <p><strong>Project Type:</strong> ${validatedData.projectType}</p>
-        ${validatedData.message ? `<p><strong>Message:</strong> ${validatedData.message}</p>` : ''}
-      `,
-    })
-    */
 
     return NextResponse.json(
       { message: 'Thank you! We\'ll get back to you within 24 hours.' },
