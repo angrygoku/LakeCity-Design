@@ -113,3 +113,6 @@ Use concise, factual copy:
 - **Week 3:** Refresh services/pricing pages with assumptions, deliverables, and exclusions.
 - **Week 4:** Publish editorial policy and “last updated” metadata across key pages.
 
+
+## Services Page Follow-up Plan
+- See `SERVICES_EVIDENCE_PLAN.md` for a detailed implementation roadmap to make `/services` and `/services/[slug]` more data-driven, visual, and verifiable.
